@@ -9,6 +9,11 @@ const Settings = () => import('~/pages/settings/index')
 const SettingsProfile = () => import('~/pages/settings/profile')
 const SettingsPassword = () => import('~/pages/settings/password')
 
+const Items = () => import('~/pages/items/index')
+const ItemsCreate = () => import('~/pages/items/create')
+const ItemsEdit = () => import('~/pages/items/edit')
+const ItemsShow = () => import('~/pages/items/show')
+
 export default [
   { path: '/', name: 'welcome', component: Welcome },
 
@@ -22,6 +27,12 @@ export default [
     { path: '', redirect: { name: 'settings.profile' }},
     { path: 'profile', name: 'settings.profile', component: SettingsProfile },
     { path: 'password', name: 'settings.password', component: SettingsPassword }
+  ] },
+
+  { path: '/items', component: Items, children: [
+    { path: 'create', name: 'items.create', component: ItemsCreate },
+    { path: 'edit', name: 'items.edit', component: ItemsEdit },
+    { path: 'show', name: 'items.show', component: ItemsShow }
   ] },
 
   { path: '*', component: require('~/pages/errors/404') }
