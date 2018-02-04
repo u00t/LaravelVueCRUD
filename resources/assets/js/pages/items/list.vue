@@ -1,54 +1,46 @@
 <template>
-    <div class="col-12">
-        <div class="row" v-cloak>
-            <div class="col-md-7">
-                <div class="form-inline form-group">
-                    <label>Search:</label>
-
-                    <input
-                        v-model="search"
-                        class="form-control"
-                        debounce="500"
-                    >
+    <section class="c-panel">
+        <header class="c-toolbar u-mb-0">
+            <div class="c-toolbar__group">
+                <div class="l-level">
+                    <div class="l-level-left">
+                        <div class="c-cell">
+                            <div class="c-cell__media">
+                                <i class="icon-quill4"></i>
+                            </div>
+                            <div class="c-cell_content">
+                                <h1 class="c-toolbar__title">Items</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="l-level__right">
+                        <router-link :to="{ name: 'items.create' }" class="btn btn--success btn--smart">
+                            <fa icon="plus"/>
+                            Create
+                        </router-link>
+                    </div>
                 </div>
+                <!-- END .l-level -->
             </div>
-
-            <div class="col-md-5">
-                <div class="dropdown form-inline pull-right">
-                    <label>Per Page:</label>
-
-                    <select class="form-control" v-model="perPage">
-                        <option value=1>1</option>
-                        <option value=10>10</option>
-                        <option value=25>25</option>
-                        <option value=50>50</option>
-                        <option value=75>75</option>
-                        <option value=100>100</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
+            <!-- END .c-toolbar__group -->
+        </header>
+        <!-- END .c-toolbar -->
         <div class="table-responsive" v-cloak>
             <vuetable ref="vuetable"
               :api-url="url"
               :fields="fields"
-              pagination-path=""
               :perPage="perPage"
+              :pagination="pagination"
+              pagination-path=""
               @vuetable:pagination-data="onPaginationData"
+              class="table table--data table--hover"
             ></vuetable>
             <vuetable-pagination ref="pagination"
               @vuetable-pagination:change-page="onChangePage"
             ></vuetable-pagination>
         </div>
-
-        <div class="text-center" v-cloak>
-            <router-link :to="{ name: 'items.create' }" class="btn btn-default">
-                <fa icon="plus"/>
-                Create
-            </router-link>
-        </div>
-    </div>
+    </section>
+    
 </template>
 
 <script>
@@ -56,18 +48,35 @@
     import Cookies from 'js-cookie'
     import swal from 'sweetalert2'
     import i18n from '~/plugins/i18n'
+    import VuetablePagination from '../../components/VuetablePagination'
 
     export default {
+        components: {
+            VuetablePagination
+        },
         data() {
             return {
                 url: '/api/items/',
                 perPage: 1,
-                search: "",
+                pagination: {
+                  wrapperClass: 'vuetable-pagination pull-right',
+                  infoClass: 'pull-left',
+                  activeClass: 'btn-primary',
+                  disabledClass: 'disabled',
+                  pageClass: 'btn btn-border',
+                  linkClass: 'btn btn-border',
+                  icons: {
+                    first: '',
+                    prev: '',
+                    next: '',
+                    last: ''
+                  }
+                },
                 fields: [
                     {
                         title: 'Index',
                         name: '__sequence',
-                        titleClass: 'text-center',
+                        titleClass: 'text-center u-hiddenDown@md',
                         dataClass: 'text-center',
                     },
                     {

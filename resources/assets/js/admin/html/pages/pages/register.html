@@ -1,0 +1,45 @@
+{% extends "layouts/center.nunjucks" %}
+
+{% block content %}
+<div class="c-sign">
+    <div class="c-sign__body">
+        <h1 class="c-sign__title">Cover</h1>
+        <p class="c-sign__text">Sign up to your App Account</p>
+        <form action="sign-info.html">
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <div class="form-group">
+                <label class="form-label">Repeat Password</label>
+                <input type="password" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <button type="button" class="btn btn--primary btn--block">Sign up</button>
+        </form>
+        <div class="divider u-mt-30 u-mb-10"><span>OR</span></div>
+        <div class="u-textCenter">
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-facebook2"></i></a>
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-twitter"></i></a>
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-github"></i></a>
+        </div>
+    </div>
+    <!-- END .c-sign__body -->
+    <div class="c-sign__footer">
+        <p class="u-textCenter">Already have an account? <a href="{{root}}pages/login.html">Sign in</a></p>
+        <p class="u-textCenter u-textMuted u-fontSize-12">Dashboard UI kit by 20Theme<br>© 2017. All RIGHT RESERVED.</p>
+    </div>
+</div>
+<!-- END .c-sign -->
+{% endblock %}

@@ -1,0 +1,30 @@
+// .c-message
+//   .c-message__media
+//   .c-message__title
+//   .c-message__content
+
+.c-message {
+  position: relative;
+  text-align: center;
+  padding-top: 45px;
+  margin-bottom: $space-stack-l;
+}
+
+.c-message__media {
+  margin-bottom: $space-stack-base;
+}
+
+.c-message__title {
+  color: $heading-color;
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 400;
+  padding: 0;
+  margin: 0 0 $space-stack-base 0;
+}
+
+.c-message__content {
+  color: $grey-base;
+  font-size: $font-size-lg;
+  margin-bottom: $space-stack-base;
+}

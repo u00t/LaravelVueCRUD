@@ -1,0 +1,284 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Basic Table</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in products %}
+                                {% if (loop.index < 7) %}
+                                <tr>
+                                    <th>{{product._id}}</th>
+                                    <td>{{product.name}}</td>
+                                    <td><code>{{product.price}}</code></td>
+                                    <td>
+                                        {% if product.status == 'publish' %}
+                                        <span class="badge badge--info">Publish</span>
+                                        {% elif product.status == 'draft' %}
+                                        <span class="badge badge--warning">Draft</span>
+                                        {% else %}
+                                        <span class="badge badge--default">Outdated</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{product.created_at}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% markdown %}
+                        ```html
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Striped Table</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <table class="table table--striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>gender</th>
+                                    <th>Company</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                {% if (loop.index < 7) %}
+                                <tr>
+                                    <th>{{loop.index}}</th>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.age}}</td>
+                                    <td>{{user.gender}}</td>
+                                    <td>{{user.company}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% markdown %}
+                        ```html
+                        <table class="table table--striped">
+                            <thead>
+                                <tr>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Bordered Table</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <table class="table table--bordered table--striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>gender</th>
+                                    <th>Company</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                {% if (loop.index > 7 and loop.index < 14) %}
+                                <tr>
+                                    <th>{{loop.index}}</th>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.age}}</td>
+                                    <td>{{user.gender}}</td>
+                                    <td>{{user.company}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% markdown %}
+                        ```html
+                        <table class="table table--bordered table--striped">
+                            <thead>
+                                <tr>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Hover Table</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <table class="table table--striped table--hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>gender</th>
+                                    <th>Company</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                {% if (loop.index > 7 and loop.index < 14) %}
+                                <tr>
+                                    <th>{{loop.index}}</th>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.age}}</td>
+                                    <td>{{user.gender}}</td>
+                                    <td>{{user.company}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% markdown %}
+                        ```html
+                        <table class="table table--bordered">
+                            <thead>
+                                <tr>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h2 class="c-panel__title">Responsive Table</h2>
+            </header>
+            <div class="c-panel__body">
+                <table class="table table--responsive">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            {% if (loop.index < 20) %}
+                            <tr>
+                                <th>{{product._id}}</th>
+                                <td>{{product.name}}</td>
+                                <td><code>{{product.price}}</code></td>
+                                <td>
+                                    {% if product.status == 'publish' %}
+                                    <span class="badge badge--info">Publish</span>
+                                    {% elif product.status == 'draft' %}
+                                    <span class="badge badge--warning">Draft</span>
+                                    {% else %}
+                                    <span class="badge badge--default">Outdated</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{product.created_at}}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% markdown %}
+                ```html
+                <table class="table table--responsive">
+                    <thead>
+                        <tr>
+                            <th>...</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Title">...</td>
+                        </tr>
+                    </tbody>
+                </table>
+                ```
+                {% endmarkdown %}
+            </div>
+            <!-- END .c-panel__body -->
+        </section>
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

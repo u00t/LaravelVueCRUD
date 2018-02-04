@@ -1,0 +1,263 @@
+{% set root = '../../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "shared/head.nunjucks" %}
+  {% block head %}{% endblock %}
+</head>
+<body>
+<div id="app" class="l-app" v-cloak>
+    <aside class="l-app__sidebar l-app__sidebar--fold">
+        <div class="logo">
+            <img src="{{root}}../dist/images/logo-white.svg">
+        </div>
+        <div class="l-app__sidebar__content">
+            <ul class="c-menu c-menu--dark" v-menu>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/index.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-envelop2"></i>
+                        </div>
+                        <div class="c-menu__text">Inbox</div>
+                        <div class="c-menu__after">
+                            <span class="badge badge--info">7</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-paperplane"></i>
+                        </div>
+                        <div class="c-menu__text">Sent</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-file-empty"></i>
+                        </div>
+                        <div class="c-menu__text">Drafts</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-drawer3"></i>
+                        </div>
+                        <div class="c-menu__text">Archive</div>
+                    </a>
+                </li>
+                <li class="c-menu__item has-sub">
+                    <a role="button" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-grid"></i>
+                        </div>
+                        <div class="c-menu__text">More</div>
+                    </a>
+                    <ul class="c-menu">
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Snoozed</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Spam</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Trash</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class=" icon-backward"></i>
+                        </div>
+                        <div class="c-menu__text">Back</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END .l-app__sidebar__content -->
+    </aside>
+    <!-- END .l-app__sidebar -->
+    <div class="l-app__content">
+        <header class="l-app__topbar">
+            <nav class="c-navbar c-navbar--light">
+                <div class="c-navbar__left">
+                    <a role="button" class="c-navbar__item u-hiddenUp@md" v-toggle:sidebar>
+                        <i class="i-menu i-menu--light"></i>
+                    </a>
+                    <a href="{{root}}apps/mailbox/send.html" class="c-navbar__item">
+                        <i class="icon-quill2 u-mr-5"></i>Compose
+                    </a>
+                </div>
+                <!-- END .c-navbar__left -->
+                <div class="c-navbar__right">
+                    <a class="c-navbar__item">
+                        <i class="icon-bell2"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <a class="c-navbar__item">
+                        <i class="icon-envelop3"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <drop class="c-navbar__item">
+                        <a role="button" class="c-account" slot="trigger">
+                            <div class="c-account__media">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                            </div>
+                            <div class="c-account__after">
+                                <i class="i-caret i-caret--light"></i>
+                            </div>
+                        </a>
+                        <drop-content placement="bottom-end" slot="content">
+                            <ul class="c-nav c-nav--menus">
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Profile</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Inbox</a>
+                                </li>
+                                <li class="c-nav__divider"></li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Log out</a>
+                                </li>
+                            </ul>
+                        </drop-content>
+                    </drop>
+                </div>
+            </nav>
+            <!-- END .c-navbar -->
+        </header>
+        <!-- END .l-app__topbar -->
+        <div class="l-app__body c-page">
+            <aside class="c-page__panel u-w-320">
+                <div class="u-p-10">
+                    <div class="form-control has-icon">
+                        <i class="icon-search u-textMuted form-icon"></i>
+                        <input type="text" class="form-input" placeholder="Search">
+                    </div>
+                </div>
+                <div class="u-pl-10 u-pr-10 u-pt-5 u-pb-5 u-bg-grey">Inbox</div>
+                <div class="c-page__panel__content">
+                    <div class="c-list c-list--inset u-mb-0">
+                        {% for message in messages %}
+                        <a href="{{root}}apps/mailbox/detail.html" class="c-list__link">
+                            <article class="c-cell c-cell--start">
+                                <div class="c-cell__media">
+                                    {% if message.status == 'unread' %}
+                                    <span class="badge badge--info"></span>
+                                    {% else %}
+                                    <span class="badge"></span>
+                                    {% endif %}
+                                </div>
+                                <div class="c-cell__content">
+                                    <header class="c-cell__header u-mb-5">
+                                        <div class="c-cell__leading">
+                                            <div class="c-account">
+                                                <div class="c-account__media">
+                                                    <img src="{{root}}assets/images/{{users[message.from].avatar}}" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="c-account__content">
+                                                    <div class="c-account__title">{{users[message.from].name}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-cell__after">
+                                            <time>{{message.created_at}}</time>
+                                        </div>
+                                    </header>
+                                    <div class="c-cell__body">
+                                        <h6>{{message.title | capitalize}}</h6>
+                                        <div class="u-textMuted u-fs-13">{{message.body}}</div>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <!-- END .c-list__link -->
+                        {% endfor %}
+                    </div>
+                    <!-- END .c-list -->
+                </div>
+                <!-- END .c-page__panel__content -->
+            </aside>
+            <!-- END .c-page__panel -->
+            <div class="c-page__content">
+                <main id="main" class="l-app__main" role="main">
+                    <div class="l-row is-center">
+                        <div class="l-col-8@xl l-col-10@lg">
+                            <article class="c-panel">
+                                <header class="c-panel__header">
+                                    <div class="c-account">
+                                        <div class="c-account__media">
+                                            <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                                        </div>
+                                        <div class="c-account__content">
+                                            <div class="c-account__title">Moyu <small class="meta">&lt;moyuboy@gmail.com&gt;</small></div>
+                                            <div class="c-account__meta">
+                                                <time class="meta">2017-04-23 PM1:04</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="c-panel__controls">
+                                        <ul class="c-nav c-nav--gap">
+                                            <li class="c-nav__item">
+                                                <a href="#" class="c-nav__link">Mark as read</a>
+                                            </li>
+                                            <li class="c-nav__item">
+                                                <a href="#" class="c-nav__link u-color-danger">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </header>
+                                <div class="c-panel__body">
+                                    <div class="c-content">
+                                        <p>Dear Sir or Madam:</p>
+                                        <p>
+                                            Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                                        </p>
+                                        <p>
+                                            Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+                                        </p>
+                                        <p>
+                                            Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                        </p>
+                                    </div>
+                                    <!-- END .c-content -->
+                                    Attachments:
+                                    <div class="metaList">
+                                        <span class="meta"><i class="icon-file-stats"></i> <a href="#">Report.ppt</a></span>
+                                        <span class="meta"><i class="icon-file-text2"></i> <a href="#">My Profile.doc</a></span>
+                                    </div>
+                                </div>
+                                <footer class="c-panel__footer">
+                                    <quill-editor style="height: 150px;" placeholder="Quick reply"></quill-editor>
+                                    <div class="u-mt-10 u-textRight">
+                                        <button class="btn btn--default">Clear</button>
+                                        <button class="btn btn--info">Send</button>
+                                    </div>
+                                </footer>
+                                <!-- END .c-panel__footer -->
+                            </article>
+                        </div>
+                    </div>
+                    <!-- END .l-row -->
+                </main>
+                <!-- END .l-app__main -->
+            </div>
+            <!-- END .c-page__content -->
+        </div>
+        <!-- END .l-app__body -->
+    </div>
+</div>
+<!-- END #app -->
+<script src="{{root}}../dist/components/quill/index.js"></script>
+<script src="{{root}}assets/js/app.js"></script>
+</body>
+</html>

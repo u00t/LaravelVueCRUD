@@ -1,14 +1,13 @@
 <template>
-    <div class="col-12">
-        <legend>Edit Item</legend>
-
-        <item-form :item="item"></item-form>
-
-        <router-link :to="{ name: 'items.list' }" class="btn btn-default">
-            <fa icon="chevron-left"/>
-            Back
-        </router-link>
-    </div>
+    <section class="c-panel">
+        <header class="c-panel__header">
+            <h3 class="c-panel__title">Edit item</h3>
+        </header>
+        <!-- END .c-toolbar -->
+        <div class="c-panel__body">
+            <item-form :item="item"></item-form>
+        </div>
+    </section>
 </template>
 
 <script>

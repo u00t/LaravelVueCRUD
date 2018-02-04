@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Cover">
+<meta name="format-detection" content="telephone=no">
+<title>Cover - Dashboard UI kit for Modern Web Application</title>
+<meta name="description" content="Dashboard UI Kit for Modern Web Application">
+<meta name="keywords" content="admin, dashboard, backend, template, responsive, ui-kit, web-app, modern, flexbox, vuejs, sass">
+<meta name="author" content="20Theme">
+<link rel="stylesheet" href="{{root}}../dist/css/cover.css">
+<link rel="stylesheet" href="{{root}}../dist/css/icomoon.css">
+<link href="{{root}}assets/css/github-gist.css">
+<link rel="apple-touch-icon" href="{{root}}assets/images/app-icon.png">
+<link rel="shortcut icon" href="{{root}}assets/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="{{root}}assets/images/favicon.ico" type="image/x-icon" />
+<script src="{{root}}../dist/vendor/vue/vue.js"></script>
+<script src="{{root}}../dist/vendor/holderjs/holder.min.js"></script>
+<script src="{{root}}../dist/cover.js"></script>

@@ -1,0 +1,123 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Fluid image</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <img data-src="holder.js/1000x400" class="img-fluid u-mb-15">
+                        <p>
+                            Responsive image is made with <code>.img-fluid</code> class.
+                            <code>max-width: 100%;</code>, <code>height: auto;</code> are applied
+                            to the image so that it scales with the parent element.
+                        </p>
+{% markdown %}
+```html
+<img src="..." class="img-fluid" />
+```
+{% endmarkdown %}
+                    </div>
+                </section>
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <f2 class="c-panel__title">Avatars</f2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="l-level u-mb-15">
+                            <div class="l-level__item">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar avatar--sm">
+                            </div>
+                            <!-- END .l-level__item -->
+                            <div class="l-level__item">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                            </div>
+                            <!-- END .l-level__item -->
+                            <div class="l-level__item">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar avatar--lg">
+                            </div>
+                            <!-- END .l-level__item -->
+                        </div>
+                        <p>
+                            There are three predefined sizes of avatar.
+                        </p>
+{% markdown %}
+```html
+<img src="..." class="avatar avatar--sm" />
+<img src="..." class="avatar" />
+<img src="..." class="avatar avatar--lg" />
+```
+{% endmarkdown %}
+                    </div>
+            </div>
+            <!-- END .l-col-4@md -->
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <f2 class="c-panel__title">Rounded Image</f2>
+                    </header>
+                    <div class="c-panel__body">
+                        <img data-src="holder.js/200x200" class="img-rounded u-mb-15 u-centerBlock">
+                        <p>
+                            By add <code>.img-rounded</code> class to apply 3px border radius on image.
+                        </p>
+{% markdown %}
+```html
+<img src="..." class="img-rounded" />
+```
+{% endmarkdown %}
+                    </div>
+                </section>
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <f2 class="c-panel__title">Fluid embeds</f2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="embed-fluid u-mb-15">
+                            <iframe src="https://player.vimeo.com/video/160704576" width="640" height="427" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                        <p>
+                            By placing <code>iframe</code>, <code>embed</code>, <code>video</code>, <code>object</code>
+                            into <code>.embed-fluid</code> container to quickly create 16x9 responsive embeds.
+                        </p>
+{% markdown %}
+```html
+<div class="embed-fluid">
+    <iframe src="https://player.vimeo.com/video/160704576"></iframe>
+</div>
+```
+{% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-4@md -->
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <f2 class="c-panel__title">Circle Image</f2>
+                    </header>
+                    <div class="c-panel__body">
+                        <img data-src="holder.js/200x200" class="img-circle u-mb-15 u-centerBlock">
+                        <p>
+                            Change image shape into circle by adding <code>.img-circle</code> class.
+                        </p>
+{% markdown %}
+```html
+<img src="..." class="img-circle" />
+```
+{% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-4@md -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

@@ -1,0 +1,46 @@
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:before {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    background-color: $divider-color;
+  }
+  &:after {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    background-color: $divider-color;
+  }
+  > span {
+    padding: 0 8px;
+  }
+}
+
+// modifiers
+.divider--y {
+  display: inline-flex;
+  height: 100%;
+  flex-direction: column;
+  &:before {
+    width: 1px;
+    height: auto;
+    min-height: 16px;
+  }
+  &:after {
+    width: 1px;
+    height: auto;
+    min-height: 16px;
+  }
+  > span {
+    writing-mode: vertical-lr;
+    padding: 8px 0;
+  }
+}

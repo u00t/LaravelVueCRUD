@@ -1,0 +1,41 @@
+// Pure CSS Grid layout
+// .l-area@md .l-area--5x3
+@each $breakpoint, $min in $grid-breakpoints {
+  $suffix: "";
+  @if $min > 0 {
+    $suffix: "\\@#{$breakpoint}";
+  }
+  @include media-breakpoint-up($breakpoint) {
+    .l-area#{$suffix} {
+      position: relative;
+      width: 100%;
+      margin-bottom: $grid-gutter-width-base;
+      // overflow: hidden;
+      
+      &:before {
+        content: "";
+        display: block;
+      }
+
+      > div,
+      > section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  @for $j from 1 through $grid-columns {
+    .l-area--#{$i}x#{$j} {
+      &:before {
+        padding-top: calc(#{$j/$i * 100%} + #{$j / $i * $grid-gutter-width-base - $grid-gutter-width-base});
+      }
+    }
+  }
+}

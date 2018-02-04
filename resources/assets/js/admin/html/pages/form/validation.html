@@ -1,0 +1,203 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h3 class="c-panel__title">
+                    Vuelidate
+                    <small><a href="https://monterail.github.io/vuelidate" target="_blank">https://monterail.github.io/vuelidate</a></small>
+                </h3>
+            </header>
+            <!-- END .c-panel__header -->
+            <div class="c-panel__body">
+                <p>
+                    Vuelidate is a simple, lightweight model-based validation for Vue.js. It makes clientside form validation easily.
+                </p>
+                <div class="l-row">
+                    <div class="l-col-12 l-col-6@md">
+                        <form class="form-horizontal" v-on:submit="submit" novalidate>
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Full name</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="text" class="form-input" name="name" required
+                                        v-model="name"
+                                        v-bind:class="{'is-danger': $v.name.$error}"
+                                        v-on:blur="$v.name.$touch()"
+                                    >
+                                    <template v-if="$v.name.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.name.required">Name is required</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Age</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="number" class="form-input" name="age" required
+                                        v-model="age"
+                                        v-bind:class="{'is-danger': $v.age.$error}"
+                                        v-on:blur="$v.age.$touch()"
+                                    >
+                                    <template v-if="$v.age.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.age.between">Age must be between 20 and 30</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Email</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="email" class="form-input" name="email" required
+                                        v-model="email"
+                                        v-bind:class="{'is-danger': $v.email.$error}"
+                                        v-on:blur="$v.email.$touch()"
+                                    >
+                                    <template v-if="$v.email.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.email.email">Email address is invalid</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Password</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="password" class="form-input" name="password" required
+                                        v-model="password"
+                                        v-bind:class="{'is-danger': $v.password.$error}"
+                                        v-on:blur="$v.password.$touch()"
+                                    >
+                                    <template v-if="$v.password.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.password.required">Password is required</small>
+                                        <small class="form-help u-color-danger" v-if="!$v.password.minLength">Password must be longer than 5 letters</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Repeat Password</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="password" class="form-input" name="repeatPassword" required
+                                        v-model="repeatPassword"
+                                        v-bind:class="{'is-danger': $v.repeatPassword.$error}"
+                                        v-on:blur="$v.repeatPassword.$touch()"
+                                    >
+                                    <template v-if="$v.repeatPassword.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.repeatPassword.same">Passwords must be identical</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Content</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <textarea class="form-input" rows="5" name="content" required
+                                        v-model="content"
+                                        v-bind:class="{'is-danger': $v.content.$error}"
+                                        v-on:blur="$v.content.$touch()"
+                                    ></textarea>
+                                    <template v-if="$v.content.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.content.minLength">Content must be 20 characters at least.</small>
+                                        <small class="form-help u-color-danger" v-if="!$v.content.maxLength">Content must be 40 characters at most.</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!-- END .form-group -->
+                            <div class="form-group l-row">
+                                <div class="l-col-12 l-col-md-10 l-col-offset-2@md">
+                                    <button type="submit" class="btn btn--primary">Login</button>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                        </form>
+                        <hr>
+                        {% markdown %}
+                        ```html
+                        <form class="form-horizontal" v-on:submit="submit" novalidate>
+                            ...
+                            <div class="form-group l-row">
+                                <label class="control-label l-col-12 l-col-2@md">Password</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="password" class="form-input" name="password" required
+                                        v-model="password"
+                                        v-bind:class="{'is-danger': $v.password.$error}"
+                                        v-on:blur="$v.password.$touch()"
+                                    >
+                                    <template v-if="$v.password.$error">
+                                        <small class="form-help u-color-danger" v-if="!$v.password.required">Password is required</small>
+                                        <small class="form-help u-color-danger" v-if="!$v.password.minLength">Password must be longer than 5 letters</small>
+                                    </template>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            ...
+                        </form>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .l-col-6@md -->
+                    <div class="l-col-6@md">
+                        <pre v-text="$v"></pre>
+                    </div>
+                    <!-- END .l-col-6@md -->
+                </div>
+            </div>
+            <!-- END .c-panel__body -->
+        </section>
+        <!-- END .c-panel -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}
+
+{% block scripts %}
+<script src="{{root}}../dist/vendor/vuelidate/vuelidate.min.js"></script>
+<script src="{{root}}../dist/vendor/vuelidate/validators.min.js"></script>
+<script>
+    Vue.use(window.vuelidate.default)
+    var v = window.validators
+    new Vue({
+      el: '#app',
+      data: {
+        name: '',
+        age: 0,
+        email: '',
+        content: '',
+        password: '',
+        repeatPassword: ''
+      },
+      validations: {
+        name: {
+          required: v.required,
+          minLength: v.minLength(4)
+        },
+        age: {
+          between: v.between(20, 30)
+        },
+        email: {
+          email: v.email
+        },
+        content: {
+          minLength: v.minLength(20),
+          maxLength: v.maxLength(40)
+        },
+        password: {
+          required: v.required,
+          minLength: v.minLength(6)
+        },
+        repeatPassword: {
+          sameAsPassword: v.sameAs('password')
+        }
+      },
+      methods: {
+        submit: function (e) {
+          if (this.$v.$invalid) {
+            e.preventDefault()
+          }
+        }
+      }
+    })
+</script>
+{% endblock %}

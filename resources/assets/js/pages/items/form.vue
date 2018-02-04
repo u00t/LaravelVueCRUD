@@ -1,13 +1,13 @@
 <template>
-	<form @submit.pervent="submit" no-validate v-cloak>
+	<form @submit.pervent="submit" class="form-horizontal" no-validate v-cloak>
 		<div 
-            class="form-group row">
-			<label for="text" class="col-3 col-form-label text-md-right">Text</label>
-			<div class="col-7">
+            class="form-group l-row">
+			<label for="text" class="form-label l-col-12 l-col-3@md">Text</label>
+			<div class="l-col-12 l-col-9@md">
 				<input
                     v-model="item.text"
                     type="text"
-                    class="form-control"
+                    class="form-input"
                     id="text"
                     name="text"
                     placeholder="Text..."
@@ -17,13 +17,13 @@
 			</div>
 		</div>
         <div 
-            class="form-group row">
-            <label for="date" class="col-3 col-form-label text-md-right">Date</label>
-            <div class="col-7">
+            class="form-group l-row">
+            <label for="date" class="form-label l-col-12 l-col-3@md">Date</label>
+            <div class="l-col-12 l-col-9@md">
                 <input
                     v-model="item.date"
                     type="date"
-                    class="form-control"
+                    class="form-input"
                     id="date"
                     name="date"
                     placeholder="Date..."
@@ -33,13 +33,13 @@
             </div>
         </div>
         <div 
-            class="form-group row">
-            <label for="time" class="col-3 col-form-label text-md-right">Time</label>
-            <div class="col-7">
+            class="form-group l-row">
+            <label for="time" class="form-label l-col-12 l-col-3@md">Time</label>
+            <div class="l-col-12 l-col-9@md">
                 <input
                     v-model="item.time"
                     type="time"
-                    class="form-control"
+                    class="form-input"
                     id="time"
                     name="time"
                     placeholder="Time..."
@@ -49,9 +49,9 @@
             </div>
         </div>
         <div 
-            class="form-group row">
-            <label for="select1" class="col-3 col-form-label text-md-right">Select1</label>
-            <div class="col-7">
+            class="form-group l-row">
+            <label for="select1" class="form-label l-col-12 l-col-3@md">Select1</label>
+            <div class="l-col-12 l-col-9@md">
                 <v-select 
                     v-model="item.select1" 
                     placeholder="Select1..."
@@ -61,9 +61,9 @@
             </div>
         </div>
         <div 
-            class="form-group row">
-            <label for="select2" class="col-3 col-form-label text-md-right">Select2</label>
-            <div class="col-7">
+            class="form-group l-row">
+            <label for="select2" class="form-label l-col-12 l-col-3@md">Select2</label>
+            <div class="l-col-12 l-col-9@md">
                 <v-select 
                     v-model="item.select2" 
                     placeholder="Select2..."
@@ -72,12 +72,15 @@
                 <has-error :form="item" field="select2"/>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group l-row">
             <div class="col-md-7 offset-md-3 d-flex">
                 <!-- Submit Button -->
-                <v-button :loading="item.busy">
+                <v-button :loading="item.busy" class="btn btn--primary">
                     {{ $t('Save') }}
                 </v-button>
+                <router-link :to="{ name: 'items.list' }" class="btn">
+                    Cancel
+                </router-link>
             </div>
         </div>
 	</form>

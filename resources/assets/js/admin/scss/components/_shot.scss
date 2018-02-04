@@ -1,0 +1,66 @@
+// .c-shot
+//  .c-shot__content || .c-shot__over
+//  
+// @modifiers: .c-shot--16x9, .c-shot--16x10, .c-shot--2x3
+// .c-shot--5x4, .c-shot--3x2
+
+.c-shot {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-bottom: 75%;
+  background-color: $shot-bg;
+  background-size: cover;
+  background-position: center center;
+}
+
+.c-shot__content,
+.c-shot__over {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: $shot-text-color;
+  font-size: 13px;
+  line-height: 16px;
+  z-index: 15;
+  overflow: hidden;
+  p {
+    margin-bottom: 6px;
+  }
+}
+
+.c-shot__over {
+  opacity: 0;
+  color: $shot-over-text-color;
+  transition: opacity 300ms;
+  background-color: $shot-over-bg;
+}
+
+.c-shot:hover .c-shot__over {
+  opacity: 1;
+}
+
+// modifiers
+.c-shot--16x9 {
+  padding-bottom: 56.25%;
+}
+
+.c-shot--16x10 {
+  padding-bottom: 62.5%;
+}
+
+.c-shot--2x3 {
+  padding-bottom: 150%;
+}
+
+.c-shot--5x4 {
+  padding-bottom: 80%;
+}
+
+.c-shot--3x2 {
+  padding-bottom: 66.66666667%;
+}

@@ -1,0 +1,207 @@
+{% set root = '../../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "shared/head.nunjucks" %}
+  {% block head %}{% endblock %}
+</head>
+<body>
+<div id="app" class="l-app" v-cloak>
+    <aside class="l-app__sidebar l-app__sidebar--fold">
+        <div class="logo">
+            <img src="{{root}}../dist/images/logo-white.svg">
+        </div>
+        <div class="l-app__sidebar__content">
+            <ul class="c-menu c-menu--dark" v-menu>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/index.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-envelop2"></i>
+                        </div>
+                        <div class="c-menu__text">Inbox</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-paperplane"></i>
+                        </div>
+                        <div class="c-menu__text">Sent</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-file-empty"></i>
+                        </div>
+                        <div class="c-menu__text">Drafts</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-drawer3"></i>
+                        </div>
+                        <div class="c-menu__text">Archive</div>
+                    </a>
+                </li>
+                <li class="c-menu__item has-sub">
+                    <a role="button" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-grid"></i>
+                        </div>
+                        <div class="c-menu__text">More</div>
+                    </a>
+                    <ul class="c-menu">
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Snoozed</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Spam</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Trash</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class=" icon-backward"></i>
+                        </div>
+                        <div class="c-menu__text">Back</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END .l-app__sidebar__content -->
+    </aside>
+    <!-- END .l-app__sidebar -->
+    <div class="l-app__content">
+        <header class="l-app__topbar">
+            <nav class="c-navbar c-navbar--light">
+                <div class="c-navbar__left">
+                    <a role="button" class="c-navbar__item u-hiddenUp@md" v-toggle:sidebar>
+                        <i class="i-menu i-menu--light"></i>
+                    </a>
+                    <a href="{{root}}apps/mailbox/send.html" class="c-navbar__item">
+                        <i class="icon-quill2 u-mr-5"></i>Compose
+                    </a>
+                </div>
+                <!-- END .c-navbar__left -->
+                <div class="c-navbar__right">
+                    <a class="c-navbar__item">
+                        <i class="icon-bell2"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <a class="c-navbar__item">
+                        <i class="icon-envelop3"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <drop class="c-navbar__item">
+                        <a role="button" class="c-account" slot="trigger">
+                            <div class="c-account__media">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                            </div>
+                            <div class="c-account__after">
+                                <i class="i-caret i-caret--light"></i>
+                            </div>
+                        </a>
+                        <drop-content placement="bottom-end" slot="content">
+                            <ul class="c-nav c-nav--menus">
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Profile</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Inbox</a>
+                                </li>
+                                <li class="c-nav__divider"></li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Log out</a>
+                                </li>
+                            </ul>
+                        </drop-content>
+                    </drop>
+                </div>
+            </nav>
+            <!-- END .c-navbar -->
+        </header>
+        <!-- END .l-app__topbar -->
+        <div class="l-app__body c-page">
+            <aside class="c-page__panel u-w-320">
+                <div class="u-p-10">
+                    <div class="form-control has-icon">
+                        <i class="icon-search u-textMuted form-icon"></i>
+                        <input type="text" class="form-input" placeholder="Search">
+                    </div>
+                </div>
+                <div class="u-pl-10 u-pr-10 u-pt-5 u-pb-5 u-bg-grey">Inbox</div>
+                <div class="c-page__panel__content">
+                    <div class="c-list c-list--inset u-mb-0">
+                        {% for message in messages %}
+                        <a href="{{root}}apps/mailbox/detail.html" class="c-list__link">
+                            <article class="c-cell c-cell--start">
+                                <div class="c-cell__media">
+                                    {% if message.status == 'unread' %}
+                                    <span class="badge badge--info"></span>
+                                    {% else %}
+                                    <span class="badge"></span>
+                                    {% endif %}
+                                </div>
+                                <div class="c-cell__content">
+                                    <header class="c-cell__header u-mb-5">
+                                        <div class="c-cell__leading">
+                                            <div class="c-account">
+                                                <div class="c-account__media">
+                                                    <img src="{{root}}assets/images/{{users[message.from].avatar}}" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="c-account__content">
+                                                    <div class="c-account__title">{{users[message.from].name}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-cell__after">
+                                            <time>{{message.date}}</time>
+                                        </div>
+                                    </header>
+                                    <div class="c-cell__body">
+                                        <h6>{{message.title | capitalize}}</h6>
+                                        <div class="u-textMuted u-fs-13">{{message.body}}</div>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <!-- END .c-list__link -->
+                        {% endfor %}
+                    </div>
+                    <!-- END .c-list -->
+                </div>
+                <!-- END .c-page__panel__content -->
+            </aside>
+            <!-- END .c-page__panel -->
+            <div class="c-page__content u-flexCenter">
+                <div class="c-message">
+                    <div class="c-message__media">
+                        <i class="icon-drawer u-textMuted u-fs-128"></i>
+                    </div>
+                    <h1 class="c-message__title">Inbox</h1>
+                    <div class="c-message__content">
+                        No email has been selected.
+                    </div>
+                </div>
+            </div>
+            <!-- END .c-page__content -->
+        </div>
+        <!-- END .l-app__body -->
+    </div>
+</div>
+<!-- END #app -->
+<script src="{{root}}assets/js/app.js"></script>
+</body>
+</html>

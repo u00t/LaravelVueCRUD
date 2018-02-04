@@ -1,0 +1,63 @@
+// .c-count
+//   .c-count__label
+//   .c-count__content
+//   
+// @modifiers: .c-count--sm, .c-count--lg, .c-count--xl
+
+// block
+.c-count {
+
+}
+
+// elements
+.c-count__label {
+  color: $muted-color;
+}
+.c-count__content {
+  line-height: 1.2;
+  font-size: 32px;
+  color: $heading-color;
+}
+
+// modifers
+.c-count--sm {
+  .c-count__label {
+    font-size: $font-size-sm;
+  }
+
+  .c-count__content {
+    font-size: 20px;
+  }
+}
+
+.c-count--lg {
+  .c-count__label {
+    font-size: $font-size-lg;
+  }
+
+  .c-count__content {
+    font-size: 48px;
+  }
+}
+
+.c-count--xl {
+  .c-count__label {
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  .c-count__content {
+    font-size: 144px;
+    font-weight: lighter;
+  }
+
+  @include media-breakpoint-down('md') {
+    .c-count__label {
+      font-size: $font-size-lg;
+    }
+    .c-count__content {
+      font-size: 48px;
+      font-weight: normal;
+    }
+  }
+}

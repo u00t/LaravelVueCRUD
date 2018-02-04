@@ -1,0 +1,348 @@
+{% set root = '' %}
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main">
+        <alert :closeable="true">
+            You have your way. I have my way. As for the right way, the correct way, and the only way, it does not exist.
+        </alert>
+        <div class="l-row l-panelGroup">
+            <div class="l-col-12 l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <div class="l-level">
+                            <div class="l-level__left">
+                                <i class="icon-stats-growth2 icon-2x u-color-warning"></i>
+                            </div>
+                            <!-- END .l-level__left -->
+                            <div class="l-level__right">
+                                <div class="l-level__item c-count u-textRight">
+                                    <div class="c-count__label">Monthly Sales</div>
+                                    <div class="c-count__content"><i class="icon-arrow-up5 u-color-success u-mr5"></i>371</div>
+                                </div>
+                            </div>
+                            <!-- END .l-level__right -->
+                        </div>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-3@lg -->
+            <div class="l-col-12 l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <div class="l-level">
+                            <div class="l-level__left">
+                                <i class="icon-users icon-2x u-color-info"></i>
+                            </div>
+                            <!-- END .l-level__left -->
+                            <div class="l-level__right">
+                                <div class="l-level__item c-count u-textRight">
+                                    <div class="c-count__label">New Users</div>
+                                    <div class="c-count__content"><i class="icon-arrow-up5 u-color-success u-mr5"></i>113</div>
+                                </div>
+                            </div>
+                            <!-- END .l-level__right -->
+                        </div>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-3@lg -->
+            <div class="l-col-12 l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <div class="l-level">
+                            <div class="l-level__item c-count">
+                                <div class="c-count__label">Followers</div>
+                                <div class="c-count__content">8346</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-3@lg -->
+            <div class="l-col-12 l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <div class="l-level">
+                            <div class="l-level__left">
+                                <i class="icon-download4 icon-2x u-color-success"></i>
+                            </div>
+                            <!-- END .l-level__left -->
+                            <div class="l-level__right">
+                                <div class="l-level__item c-count u-textRight">
+                                    <div class="c-count__label">Downloads</div>
+                                    <div class="c-count__content"><i class="icon-arrow-up5 u-color-success u-mr5"></i>113</div>
+                                </div>
+                            </div>
+                            <!-- END .l-level__right -->
+                        </div>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-3@lg -->
+        </div>
+        <!-- END .l-row -->
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h3 class="c-panel__title">Sales Trending</h3>
+            </header>
+            <!-- END .c-panel__header -->
+            <div class="c-panel__body">
+                <canvas id="myChart" width="400" height="100"></canvas>
+            </div>
+            <!-- END .c-panel__body -->
+        </section>
+        <!-- END .c-panel -->
+        <div class="l-row l-panelGroup">
+            <div class="l-col-6@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Recent orders</h2>
+                        <div class="c-panel__controls">
+                            <ul class="c-nav c-nav--actions">
+                                <li class="c-nav__item">
+                                    <a role="button" class="c-nav__link">MORE</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END .c-panel__controls -->
+                    </header>
+                    <div class="c-panel__body">
+                        <table class="table table--responsive u-mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Fee</th>
+                                    <th>Status</th>
+                                    <th class="u-textRight@md">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                                {% if (loop.index < 8) %}
+                                <tr>
+                                    <td data-label="Id">
+                                        <a href="{{root}}apps/cms/invoice.html">{{loop.index}}</a>
+                                    </td>
+                                    <td data-label="User">{{users[order.user_id].name}}</td>
+                                    <td data-label="Fee"><code>{{order.fee}}</code></td>
+                                    <td data-label="Status">
+                                        {% if order.payment == 'paid' %}
+                                        <span class="badge badge--info">Paid</span>
+                                        {% elif order.status == 'unpaid' %}
+                                        <span class="badge badge--warning">Unpaid</span>
+                                        {% else %}
+                                        <span class="badge badge--default">Refunded</span>
+                                        {% endif %}
+                                    </td>
+                                    <td data-label="Date" class="u-textRight@md">{{order.created_at}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-widget -->
+            </div>
+            <!-- END .l-col-6@lg -->
+            <div class="l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Summary</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="l-row">
+                            <div class="l-col-6">
+                                <table class="table table--simple">
+                                    <thead>
+                                        <tr><th colspan="2">This Month</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="u-textMuted">Income</td>
+                                            <td class="u-textRight">$23,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="u-textMuted">Sales</td>
+                                            <td class="u-textRight">940</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END .l-col-6 -->
+                            <div class="l-col-6">
+                                <table class="table table--simple">
+                                    <thead>
+                                        <tr><th colspan="2">Today</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="u-textMuted">Income</td>
+                                            <td class="u-textRight">$575</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="u-textMuted">Sales</td>
+                                            <td class="u-textRight">23</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END .l-col-6 -->
+                        </div>
+                        <!-- END .l-row -->
+                        <div class="l-row">
+                            <div class="l-col-6">
+                                <table class="table table--simple">
+                                    <thead>
+                                        <tr><th colspan="2">Last Month</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="u-textMuted">Income</td>
+                                            <td class="u-textRight">$20,300</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="u-textMuted">Sales</td>
+                                            <td class="u-textRight">812</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END .l-col-6 -->
+                            <div class="l-col-6">
+                                <table class="table table--simple">
+                                    <thead>
+                                        <tr><th colspan="2">Total</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="u-textMuted">Income</td>
+                                            <td class="u-textRight">$65,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="u-textMuted">Sales</td>
+                                            <td class="u-textRight">2600</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END .l-col-6 -->
+                        </div>
+                        <!-- END .l-row -->
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@lg -->
+            <div class="l-col-6@sm l-col-3@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Schedule</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <ul class="c-stream">
+                            <li class="c-stream__item">
+                                <span class="badge badge--primary c-stream__badge"></span>
+                                <time class="u-color-muted u-fontSize-12">2 minutes ago</time>
+                                <p class="u-m-0">
+                                    Check your internet connection
+                                </p>
+                            </li>
+                            <!-- END .c-stream__item -->
+                            <li class="c-stream__item">
+                                <time class="u-color-muted u-fontSize-12">9:30</time>
+                                <p class="u-m-0">
+                                    Meeting with tech leader
+                                </p>
+                            </li>
+                            <!-- END .c-stream__item -->
+                            <li class="c-stream__item">
+                                <time class="u-color-muted u-fontSize-12">8:30</time>
+                                <p class="u-m-0">
+                                    Call to customer <a href="#">Jacob</a> and discuss the detail.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, consequatur.
+                                </p>
+                            </li>
+                            <!-- END .c-stream__item -->
+                            <li class="c-stream__item">
+                                <time class="u-color-muted u-fontSize-12">Wed, 25 Mar</time>
+                                <p class="u-m-0">
+                                    Finished task Testing.
+                                </p>
+                            </li>
+                            <!-- END .c-stream__item -->
+                            <li class="c-stream__item">
+                                <time class="u-color-muted u-fontSize-12">Thu, 10 Mar</time>
+                                <p class="u-m-0">
+                                    Trip to the mars
+                                </p>
+                            </li>
+                            <!-- END .c-stream__item -->
+                        </ul>
+                        <!-- END .c-stream -->
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-widget -->
+            </div>
+            <!-- END .l-col-6@lg -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}
+
+{% block scripts %}
+<script src="{{root}}../dist/vendor/chart/Chart.bundle.min.js"></script>
+<script>
+    new Vue({
+      el: '#app',
+      mounted: function () {
+          var $ctx = document.getElementById('myChart')
+          var myChart = new Chart($ctx, {
+            options: {
+              legend: {
+                display: false
+              }
+            },
+            type: 'line',
+            data: {
+              labels: ["January", "February", "March", "April", "May", "June"],
+              datasets: [{
+                label: "Sales",
+                fill: true,
+                lineTension: 0.45,
+                backgroundColor: "RGBA(16, 137, 245, 0.3)",
+                borderColor: "#1089F5",
+                borderWidth: 1,
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "#fff",
+                pointBackgroundColor: "#1089F5",
+                pointHoverBackgroundColor: "#1089F5",
+                pointHoverBorderColor: "#fff",
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                pointBorderWidth: 0,
+                pointHoverBorderWidth: 0,
+                pointHitRadius: 6,
+                data: [65, 59, 80, 81, 56, 55, 40],
+                spanGaps: false
+              }]
+            }
+          })
+      }
+    })
+</script>
+{% endblock %}

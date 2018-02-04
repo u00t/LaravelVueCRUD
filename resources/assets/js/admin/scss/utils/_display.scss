@@ -1,0 +1,43 @@
+[v-cloak] {
+  display: none;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-scrollX {
+  display: flex;
+  flex-wrap: nowrap;
+  // white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none; // -ms-autohiding-scrollbar
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+}
+
+.u-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+}
+
+@include media-breakpoint-up(md) {
+  .u-hover {
+    .u-hover__target {
+      visibility: hidden;
+    }
+    &:hover {
+      .u-hover__target {
+        visibility: visible;
+      }
+    }
+  }
+}

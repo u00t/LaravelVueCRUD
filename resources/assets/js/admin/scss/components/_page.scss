@@ -1,0 +1,54 @@
+.c-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.c-page__panel {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: $page-panel-width;
+  background-color: $page-panel-bg;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: $page-panel-border-color;
+  overflow: hidden;
+}
+
+.c-page__content {
+  flex: 1 1 0%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.c-page__content ~ .c-page__panel {
+  border-width: 0 0 0 1px;
+}
+
+.c-page__panel > *:not(.c-page__panel__content) {
+  flex: 0 0 auto;
+}
+
+.c-page__panel__inner {
+  padding-left: $page-panel-inner-padding-x;
+  padding-right: $page-panel-inner-padding-x;
+}
+
+.c-page__panel__content {
+  flex: 1 1 0%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

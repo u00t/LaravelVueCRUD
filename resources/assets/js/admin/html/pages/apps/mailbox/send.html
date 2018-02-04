@@ -1,0 +1,279 @@
+{% set root = '../../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "shared/head.nunjucks" %}
+  {% block head %}{% endblock %}
+</head>
+<body>
+<div id="app" class="l-app" v-cloak>
+    <aside class="l-app__sidebar l-app__sidebar--fold">
+        <div class="logo">
+            <img src="{{root}}../dist/images/logo-white.svg">
+        </div>
+        <div class="l-app__sidebar__content">
+            <ul class="c-menu c-menu--dark" v-menu>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/index.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-envelop2"></i>
+                        </div>
+                        <div class="c-menu__text">Inbox</div>
+                        <div class="c-menu__after">
+                            <span class="badge badge--info">7</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-paperplane"></i>
+                        </div>
+                        <div class="c-menu__text">Sent</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-file-empty"></i>
+                        </div>
+                        <div class="c-menu__text">Drafts</div>
+                    </a>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-drawer3"></i>
+                        </div>
+                        <div class="c-menu__text">Archive</div>
+                    </a>
+                </li>
+                <li class="c-menu__item has-sub">
+                    <a role="button" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class="icon-grid"></i>
+                        </div>
+                        <div class="c-menu__text">More</div>
+                    </a>
+                    <ul class="c-menu">
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Snoozed</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Spam</div>
+                            </a>
+                        </li>
+                        <li class="c-menu__item">
+                            <a href="{{root}}apps/mailbox/archive.html" class="c-menu__link">
+                                <div class="c-menu__text">Trash</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="c-menu__item">
+                    <a href="{{root}}" class="c-menu__link">
+                        <div class="c-menu__icon">
+                            <i class=" icon-backward"></i>
+                        </div>
+                        <div class="c-menu__text">Back</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END .l-app__sidebar__content -->
+    </aside>
+    <!-- END .l-app__sidebar -->
+    <div class="l-app__content">
+        <header class="l-app__topbar">
+            <nav class="c-navbar c-navbar--light">
+                <div class="c-navbar__left">
+                    <a role="button" class="c-navbar__item u-hiddenUp@md" v-toggle:sidebar>
+                        <i class="i-menu i-menu--light"></i>
+                    </a>
+                    <a href="{{root}}apps/mailbox/send.html" class="c-navbar__item">
+                        <i class="icon-quill2 u-mr-5"></i>Compose
+                    </a>
+                </div>
+                <!-- END .c-navbar__left -->
+                <div class="c-navbar__right">
+                    <a class="c-navbar__item">
+                        <i class="icon-bell2"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <a class="c-navbar__item">
+                        <i class="icon-envelop3"></i>
+                    </a>
+                    <!-- END .c-nav__item -->
+                    <drop class="c-navbar__item">
+                        <a role="button" class="c-account" slot="trigger">
+                            <div class="c-account__media">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                            </div>
+                            <div class="c-account__after">
+                                <i class="i-caret i-caret--light"></i>
+                            </div>
+                        </a>
+                        <drop-content placement="bottom-end" slot="content">
+                            <ul class="c-nav c-nav--menus">
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Profile</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Inbox</a>
+                                </li>
+                                <li class="c-nav__divider"></li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Log out</a>
+                                </li>
+                            </ul>
+                        </drop-content>
+                    </drop>
+                </div>
+            </nav>
+            <!-- END .c-navbar -->
+        </header>
+        <!-- END .l-app__topbar -->
+        <div class="l-app__body">
+            <main id="main" class="l-app__main" role="main">
+                <div class="l-row is-center">
+                    <div class="l-col-8@xl l-col-10@lg">
+                        <section class="c-panel">
+                            <div class="c-panel__body">
+                                <div class="form-group">
+                                    <label class="form-label">To</label>
+                                    <multiselect
+                                        v-model="messageTo"
+                                        :options="users"
+                                        track-by="_id"
+                                        label="name"
+                                        :multiple="true"
+                                        :close-on-select="false"
+                                        :hide-selected="true"
+                                        placeholder="Select users"
+                                    ></multiselect>
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group">
+                                    <label class="form-label">Subject</label>
+                                    <input type="text" class="form-input">
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group">
+                                    <label class="form-label">Attachments</label>
+                                    <input-file multiple />
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group">
+                                    <label class="form-label">Content</label>
+                                    <div class="form-content">
+                                        <quill-editor style="height: 200px;" placeholder="Quick reply"></quill-editor>
+                                    </div>
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group u-textRight">
+                                    <button class="btn btn--default">Clear</button>
+                                    <button class="btn btn--info">Send</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- END .l-row -->
+            </main>
+            <!-- END .l-app__main -->
+        </div>
+        <!-- END .l-app__body -->
+    </div>
+</div>
+<!-- END #app -->
+<script src="{{root}}../dist/components/quill/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            messageTo: '',
+            users: [
+              {
+                "_id": "58fc5466d8deaa07f67cddf7",
+                "name": "Cameron Conway",
+                "email": "cameronconway@gallaxia.biz"
+              },
+              {
+                "_id": "58fc5466636aad6716001d49",
+                "name": "Kemp Middleton",
+                "email": "kempmiddleton@cytrek.co.uk"
+              },
+              {
+                "_id": "58fc546691a417bbe5bfc8f7",
+                "name": "Queen Larson",
+                "email": "queenlarson@kraggle.biz"
+              },
+              {
+                "_id": "58fc54663049cdc00d1f0e72",
+                "name": "Dotson Jenkins",
+                "email": "dotsonjenkins@opticon.com"
+              },
+              {
+                "_id": "58fc5466caa4e52d72211460",
+                "name": "Decker Perkins",
+                "email": "deckerperkins@harmoney.io"
+              },
+              {
+                "_id": "58fc5466758cde18af5f337c",
+                "name": "Mcclure Lara",
+                "email": "mcclurelara@enersave.info"
+              },
+              {
+                "_id": "58fc5466eed632821098d9dd",
+                "name": "Adams Clark",
+                "email": "adamsclark@zentime.net"
+              },
+              {
+                "_id": "58fc5466dda3e775e600a39b",
+                "name": "Marietta Norton",
+                "email": "mariettanorton@skinserve.org"
+              },
+              {
+                "_id": "58fc5466d125017209782843",
+                "name": "Jordan Fitzgerald",
+                "email": "jordanfitzgerald@retrack.me"
+              },
+              {
+                "_id": "58fc5466d09ba5f503f3e550",
+                "name": "Olive Steele",
+                "email": "olivesteele@viasia.ca"
+              },
+              {
+                "_id": "58fc546668700bd62464b68e",
+                "name": "Mejia Durham",
+                "email": "mejiadurham@viocular.us"
+              },
+              {
+                "_id": "58fc54662e69e9fd33fcd2b9",
+                "name": "Merle Gibbs",
+                "email": "merlegibbs@hatology.tv"
+              },
+              {
+                "_id": "58fc54662306f5d4c074f6f9",
+                "name": "Whitney Brennan",
+                "email": "whitneybrennan@liquidoc.biz"
+              },
+              {
+                "_id": "58fc5466386ce7bc9b99d4b5",
+                "name": "Cora Kelly",
+                "email": "corakelly@gracker.co.uk"
+              },
+              {
+                "_id": "58fc5466417f3626c224f6a7",
+                "name": "John Justice",
+                "email": "johnjustice@tri@tribalog.biz"
+              }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Box</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>Sometimes you have groups of content and need to put them in boxes. In those situations, try the Box component.</p>
+                        <div class="c-box">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% markdown %}
+                        ```html
+                        <div class="c-box">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                </div>
+                            </div>
+                        </div>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Types</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>By adding the following modifier classes on <code>.c-box</code> container to quick create different styled Box:</p>
+                        <ul>
+                            <li><code>.c-box--info</code></li>
+                            <li><code>.c-box--danger</code></li>
+                            <li><code>.c-box--success</code></li>
+                            <li><code>.c-box--warning</code></li>
+                        </ul>
+                        <div class="c-box c-box--info">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-box c-box--danger">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-box c-box--success">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-box c-box--warning">
+                            <header class="c-box__heading">Box Title</header>
+                            <div class="c-box__body">
+                                <div class="c-box__inner">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque praesentium velit eius, repudiandae voluptatum, non provident modi dolor accusamus sunt inventore omnis saepe repellat, officia veritatis fugiat quo tempore placeat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

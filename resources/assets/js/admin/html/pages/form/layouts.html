@@ -1,0 +1,342 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-12 l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Vertical Form</h3>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        <form action="#">
+                            <div class="l-row">
+                                <div class="form-group l-col-12 l-col-6@sm">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" placeholder="Enter your name" class="form-input">
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group l-col-12 l-col-6@sm">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input">
+                                </div>
+                                <!-- END .form-group -->
+                            </div>
+                            <!--END .row-->
+                            <div class="form-group">
+                                <label class="form-label">Gender</label>
+                                <div class="radio-inline">
+                                    <label class="form-radio">
+                                        <input type="radio" name="gendar" value="male">
+                                        <span class="form-radio__indicator"></span>
+                                        <span class="form-radio__text">Male</span>
+                                    </label>
+                                    <!-- END .radio -->
+                                    <label class="form-radio">
+                                        <input type="radio" name="gendar" value="female">
+                                        <span class="form-radio__indicator"></span>
+                                        <span class="form-radio__text">Female</span>
+                                    </label>
+                                    <!-- END .radio -->
+                                </div>
+                                <!-- END .radio-inline -->
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Say somthing nice."></textarea>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <button role="button" class="btn btn--primary">Submit</button>
+                                <button role="button" class="btn">Cancel</button>
+                            </div>
+                            <!-- END .form-group -->
+                        </form>
+                        {% markdown %}
+                        Form use vertical stack layout as default.
+                        ```html
+                        <form action="#">
+                          <div class="l-row">
+                              <div class="form-group l-col-12 l-col-6@sm">
+                                  <label class="form-label">Name</label>
+                                  <input type="text" placeholder="Enter your name" class="form-input">
+                              </div>
+                              <div class="form-group l-col-12 l-col-6@sm">
+                                  <label class="form-label">Email</label>
+                                  <input type="email" class="form-input">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Gender</label>
+                              <div class="radio-inline">
+                                  <label class="form-radio">
+                                      <input type="radio" name="gendar" value="male">
+                                      <span class="form-radio__indicator"></span>
+                                      <span class="form-radio__text">Male</span>
+                                  </label>
+                                  <label class="form-radio">
+                                      <input type="radio" name="gendar" value="female">
+                                      <span class="form-radio__indicator"></span>
+                                      <span class="form-radio__text">Female</span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Message</label>
+                              <textarea class="form-textarea" rows="4" placeholder="Say somthing nice."></textarea>
+                          </div>
+                          <div class="form-group">
+                              <button role="button" class="btn btn--primary">Submit</button>
+                              <button role="button" class="btn">Cancel</button>
+                          </div>
+                        </form>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-12 l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Horizontal Form</h3>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        <form class="form-horizontal u-mb-15">
+                            <div class="form-group l-row">
+                                <label class="form-label l-col-12 l-col-3@md">Username</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <label class="form-label l-col-12 l-col-3@md">Password</label>
+                                <div class="l-col-12 l-col-9@md">
+                                    <input type="password" class="form-input">
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group l-row">
+                                <div class="l-col-12 l-col-9@md l-col-offset-3@md">
+                                    <label class="form-checkbox">
+                                        <input type="checkbox">
+                                        <span class="form-checkbox__indicator"></span>
+                                        <span class="form-checkbox__text">Remember me?</span>
+                                    </label>
+                                    <!-- END .checkbox -->
+                                </div>
+                            </div>
+                            <!-- END .form-group -->
+                            <div class="form-group l-row">
+                                <div class="l-col-12 l-col-9@md l-col-offset-3@md">
+                                    <button type="button" class="btn btn--primary">Login</button>
+                                </div>
+                            </div>
+                            <!--END .form-group-->
+                        </form>
+                        {% markdown %}
+                        Use Grid to create horizontal forms.
+                        ```html
+                        <form class="form-horizontal">
+                          <div class="form-group l-row">
+                            <label class="form-label l-col-12 l-col-3@md">Username</label>
+                            <div class="l-col-12 l-col-9@md">
+                                <input type="text" class="form-input">
+                            </div>
+                          </div>
+                          <!--END .form-group-->
+                          <div class="form-group l-row">
+                            <label class="form-label l-col-12 l-col-3@md">Password</label>
+                            <div class="l-col-12 l-col-9@md">
+                              <input type="password" class="form-input">
+                            </div>
+                          </div>
+                          <div class="form-group l-row">
+                            <div class="l-col-12 l-col-9@md l-col-offset-3@md">
+                              <label class="form-checkbox">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                                <span class="form-checkbox__text">Remember me?</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="form-group l-row">
+                            <div class="l-col-12 l-col-9@md l-col-offset-3@md">
+                              <button type="button" class="btn btn--primary">Login</button>
+                            </div>
+                          </div>
+                        </form>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Inline Form</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        <form class="form-inline u-mb-15">
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-input">
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <label class="form-checkbox u-m-0">
+                                    <input type="checkbox">
+                                    <span class="form-checkbox__indicator"></span>
+                                    <span class="form-checkbox__text">Remember me?</span>
+                                </label>
+                                <!-- END .checkbox -->
+                            </div>
+                            <!-- END .form-group -->
+                            <div class="form-group">
+                                <button type="button" class="btn btn--primary btn--outline">Login</button>
+                            </div>
+                            <!--END .form-group-->
+                        </form>
+                        {% markdown %}
+                        Use the `.form-inline` class to display a series of group elements on a single horizontal row.
+                        ```html
+                        <form class="form-inline">
+                          <div class="form-group">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-input">
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input">
+                          </div>
+                          <div class="form-group">
+                            <label class="form-checkbox u-m-0">
+                              <input type="checkbox">
+                              <span class="form-checkbox__indicator"></span>
+                              <span class="form-checkbox__text">Remember me?</span>
+                            </label>
+                          </div>
+                          <div class="form-group">
+                            <button type="button" class="btn btn--primary btn--outline">Login</button>
+                          </div>
+                        </form>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h3 class="c-panel__title">Input Grid</h3>
+            </header>
+            <div class="c-panel__body">
+                <div class="l-row">
+                    <div class="l-col-12 form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md2">
+                    </div>
+                    <div class="l-col-12 l-col-6@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-6@md">
+                    </div>
+                    <div class="l-col-12 l-col-6@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-6@md">
+                    </div>
+                    <div class="l-col-12 l-col-4@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-4@md">
+                    </div>
+                    <div class="l-col-12 l-col-4@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-4@md">
+                    </div>
+                    <div class="l-col-12 l-col-4@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-4@md">
+                    </div>
+                    <div class="l-col-12 l-col-3@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-3@md">
+                    </div>
+                    <div class="l-col-12 l-col-3@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-3@md">
+                    </div>
+                    <div class="l-col-12 l-col-3@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-3@md">
+                    </div>
+                    <div class="l-col-12 l-col-3@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-3@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-2@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-2@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                      <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                    <div class="l-col-12 l-col-1@md form-group">
+                        <input type="text" class="form-input" placeholder=".l-col-1@md">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END .c-panel -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

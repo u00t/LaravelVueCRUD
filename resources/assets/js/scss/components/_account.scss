@@ -1,0 +1,45 @@
+// .c-account
+//   .c-account__media
+//   .c-account__content
+//     .c-account__title
+//     .c-account__meta
+//   .c-account__after
+
+// block
+.c-account {
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size-base;
+  line-height: 1;
+}
+
+// elements
+.c-account__media {
+  + .c-account__content {
+    margin-left: $space-inline-base;
+  }
+}
+
+.c-account__content {
+  text-align: left;
+  margin-left: $space-inline-m;
+}
+
+.c-account__title {
+  color: $heading-color;
+  font-size: $font-size-base;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  @include oneline;
+}
+
+.c-account__meta {
+  color: $muted-color;
+  font-size: 75%;
+  white-space: nowrap;
+}
+
+.c-account__after {
+  margin-left: $space-inline-m;
+}

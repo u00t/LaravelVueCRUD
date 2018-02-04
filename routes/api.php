@@ -22,6 +22,10 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', 'Settings\ProfileController@update');
     Route::patch('settings/password', 'Settings\PasswordController@update');
+
+    Route::resource('/items', 'ItemsController', [
+        'except' => ['create', 'edit']
+    ]);
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
@@ -32,8 +36,4 @@ Route::group(['middleware' => 'guest:api'], function () {
 
     Route::post('oauth/{driver}', 'Auth\OAuthController@redirectToProvider');
     Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
-
-    Route::resource('/items', 'ItemsController', [
-        'except' => ['create', 'edit']
-    ]);
 });

@@ -1,0 +1,41 @@
+// .c-alert
+//  .c-alert__close
+//  
+// @modifiers: .c-alert--primary, .c-alert--info, .c-alert--danger
+// .c-alert--success, .c-alert--warning
+
+// block
+.c-alert {
+  position: relative;
+  display: block;
+  background-color: $alert-bg;
+  margin-bottom: $space-stack-base;
+  padding: $alert-padding-y $alert-padding-x;
+  border-left: 4px map-get($master-palette, 'primary') solid;
+  font-size: $font-size-base;
+  > *:first-child {
+    margin-top: 0;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  &.has-close {
+    padding-right: 40px;
+  }
+}
+
+.c-alert__close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  cursor: pointer;
+}
+
+// modifiers
+@each $modifier, $value in $master-palette {
+  .c-alert--#{$modifier} {
+    color: $color-white;
+    background-color: $value;
+    border-left-color: mix($color-black, $value, $mix-level-2);
+  }
+}

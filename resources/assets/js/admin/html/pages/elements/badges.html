@@ -1,0 +1,84 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Types</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <span class="badge u-mb-5">Badge label</span>
+                            <span class="badge badge--primary u-mb-5">Primary</span>
+                            <span class="badge badge--info u-mb-5">Info</span>
+                            <span class="badge badge--success u-mb-5">Success</span>
+                            <span class="badge badge--danger u-mb-5">Danger</span>
+                            <span class="badge badge--warning u-mb-5">Warning</span>
+                        </div>
+                        {% markdown %}
+                        There are six predefined badge styles.
+
+                        ```html
+                        <span class="badge">Badge label</span>
+                        <span class="badge badge--primary">Primary</span>
+                        <span class="badge badge--info">Info</span>
+                        <span class="badge badge--success">Success</span>
+                        <span class="badge badge--danger">Danger</span>
+                        <span class="badge badge--warning">Warning</span>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Floating</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <button class="btn btn--default u-mb-5">
+                                Inbox<span class="badge badge--danger badge--floatTR"></span>
+                            </button>
+                            <button class="btn btn--default u-mb-5">
+                                Message<span class="badge badge--danger badge--floatTR">241</span>
+                            </button>
+                            <button class="btn btn--default u-mb-5">
+                                Task<span class="badge badge--warning badge--floatTR">5</span>
+                            </button>
+                        </div>
+                        {% markdown %}
+                        Badge can float over parent element by one of `.btn--floatTL`, `.btn--floatTR`,
+                        `.btn--floatBL`, `.btn--floatBR` those position modifier classes.
+
+                        ```html
+                        <button class="btn btn--default">
+                            Inbox<span class="badge badge--danger badge--floatTR"></span>
+                        </button>
+                        <button class="btn btn--default">
+                            Message<span class="badge badge--danger badge--floatTR">241</span>
+                        </button>
+                        <button class="btn btn--default">
+                            Task<span class="badge badge--warning badge--floatTR">5</span>
+                        </button>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+        </div>
+        <!-- END .l-row -->
+
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

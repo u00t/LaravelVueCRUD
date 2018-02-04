@@ -1,0 +1,74 @@
+// .c-stream
+//  .c-stream__item
+//    .c-stream__badge
+//    
+// @modifiers: .c-stream--sm, .c-stream--lg
+
+.c-stream {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-stream__item {
+  position: relative;
+  padding: 0 0 $space-stack-base 24px;
+  &:last-child {
+    padding-bottom: 0;
+    &:before {
+      display: none;
+    }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    bottom: -2px;
+    width: 1px;
+    background-color: $divider-color;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: $divider-color;
+  }
+}
+
+.c-stream__badge {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 9px;
+  height: 9px;
+  z-index: 15;
+}
+
+// modifiers
+.c-stream--sm {
+  .c-stream__item {
+    padding-left: 16px;
+    &:before {
+      left: 2px;
+    }
+    &:after {
+      width: 5px;
+      height: 5px;
+    }
+  }
+  .c-stream__badge {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+.c-stream--lg {
+  .c-stream__item {
+    padding-left: 32px;
+  }
+}

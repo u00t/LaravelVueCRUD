@@ -1,0 +1,382 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="c-panel">
+            <header class="c-panel__header">
+                <h1 class="c-panel__title">Toolbar</h1>
+            </header>
+            <div class="c-panel__body">
+                <p>
+                    Use <strong>Toolbar</strong> component to create page header navigation.
+                </p>
+                <p>Structure:</p>
+                <ul>
+                    <li>
+                        <code>.c-toolbar</code>
+                        <ul>
+                            <li>
+                                <code>.c-toolbar__group</code>
+                                <ul>
+                                    <li><code>.c-toolbar__title</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    The <strong>Toolbar</strong> only has three type elements,
+                    by combining it with <strong>Cell</strong>,
+                    <strong>Level</strong> and other components, you can create
+                    various page navigation.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <header class="c-toolbar">
+            <div class="l-level">
+                <div class="l-level__left">
+                    <div class="c-cell">
+                        <div class="c-cell__media">
+                            <i class="icon-footprint"></i>
+                        </div>
+                        <div class="c-cell__content">
+                            <h1 class="c-toolbar__title">Dashboard</h1>
+                            <ol class="c-breadcrumb">
+                                <li class="c-breadcrumb__item">
+                                    <a href="#" class="c-breadcrumb__link">Home</a>
+                                </li>
+                                <li class="c-breadcrumb__item">
+                                    <a href="#" class="c-breadcrumb__link">Library</a>
+                                </li>
+                                <li class="c-breadcrumb__item">
+                                    Book
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- END .c-cell -->
+                </div>
+                <!-- END .l-level__left -->
+                <div class="l-level__right">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-control has-iconRight">
+                                    <i class="icon-search form-iconRight u-mr-5"></i>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__item -->
+                    <div class="l-level__item">
+                        <a href="#" class="btn btn--info btn--smart">
+                            <i class="icon-plus-circle u-mr-5"></i>New Position
+                        </a>
+                    </div>
+                </div>
+                <!-- END .l-level__right -->
+            </div>
+        </header>
+        <!-- END .c-toolbar -->
+        <header class="c-toolbar">
+            <div class="l-level">
+                <div class="l-level__left">
+                    <h1 class="c-toolbar__title">Campaigns <span>36 Results</span></h1>
+                </div>
+                <!-- END .l-level__left -->
+                <div class="l-level__right">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-control has-iconRight">
+                                    <i class="icon-search form-iconRight u-mr-5"></i>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__item -->
+                    <div class="l-level__item">
+                        <a href="#" class="btn btn--success btn--smart">
+                            <i class="icon-plus-circle u-mr-5"></i>New Promotions
+                        </a>
+                    </div>
+                </div>
+                <!-- END .l-level__right -->
+            </div>
+        </header>
+        <!-- END .c-toolbar -->
+        <header class="c-toolbar">
+            <div class="l-level">
+                <div class="l-level__left">
+                    <div class="l-level__item">
+                        <button class="btn btn--default">
+                            <i class="icon-plus-circle btn__icon"></i>
+                        </button>
+                    </div>
+                    <div class="l-level__item">
+                        <div class="btnGroup">
+                            <button class="btn btn--default">
+                                <i class="icon-make-group btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-ungroup btn__icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="l-level__item">
+                        <div class="btnGroup">
+                            <button class="btn btn--default">
+                                <i class="icon-zoom-out btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-zoom-in btn__icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="l-level__item">
+                        <div class="btnGroup">
+                            <button class="btn btn--default">
+                                <i class="icon-paragraph-left btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-paragraph-center btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-paragraph-right btn__icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="l-level__item">
+                        <div class="btnGroup">
+                            <button class="btn btn--default">
+                                <i class="icon-vector btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-vector2 btn__icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="l-level__item">
+                        <div class="btnGroup">
+                            <button class="btn btn--default">
+                                <i class="icon-crop btn__icon"></i>
+                            </button>
+                            <button class="btn btn--default">
+                                <i class="icon-scissors btn__icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="l-level__item">
+                        <button class="btn btn--default">
+                            <i class="icon-bin btn__icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- END .l-level__left -->
+                <div class="l-level__right">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-control has-iconRight">
+                                    <i class="icon-search form-iconRight u-mr-5"></i>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__item -->
+                    <drop class="l-level__item">
+                        <a role="button" class="c-account" slot="trigger">
+                            <div class="c-account__media">
+                                <img src="{{root}}assets/images/avatar.jpg" class="avatar avatar--sm">
+                            </div>
+                            <div class="c-account__after">
+                                <i class="i-caret"></i>
+                            </div>
+                        </a>
+                        <drop-content placement="bottom-end" slot="content">
+                            <ul class="c-nav c-nav--menus">
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Profile</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Inbox</a>
+                                </li>
+                                <li class="c-nav__divider"></li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Log out</a>
+                                </li>
+                            </ul>
+                        </drop-content>
+                    </drop>
+                </div>
+                <!-- END .l-level__right -->
+            </div>
+        </header>
+        <!-- END .c-toolbar -->
+        <header class="c-toolbar">
+            <div class="c-toolbar__group">
+                <div class="l-level">
+                    <div class="l-level__left">
+                        <h1 class="c-toolbar__title">Performance</h1>
+                    </div>
+                    <!-- END .l-level__left -->
+                    <div class="l-level__right">
+                        <a href="#" class="btn btn--success btn--smart">
+                            <i class="icon-download4 u-mr-5"></i>Download Report
+                        </a>
+                    </div>
+                    <!-- END .l-level__right -->
+                </div>
+            </div>
+            <!-- END .c-toolbar__group -->
+            <div class="c-toolbar__group">
+                <div class="l-level">
+                    <div class="l-level__left">
+                        <ul class="c-nav c-nav--pills">
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link is-active">Analytics</a>
+                            </li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Previous Exports</a>
+                            </li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Targeting</a>
+                            </li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Customers</a>
+                            </li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END .l-level__left -->
+                    <div class="l-level__right">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-flex">
+                                    <div class="form-control has-icon">
+                                        <i class="icon-calendar form-icon"></i>
+                                        <select class="form-input u-pl-35">
+                                            <option value="2016-01-25" selected>Jul 25, 16</option>
+                                        </select>
+                                    </div>
+                                    <span class="form-addon">-</span>
+                                    <div class="form-control has-icon">
+                                        <i class="icon-calendar form-icon"></i>
+                                        <select class="form-input u-pl-35">
+                                            <option value="2016-08-22" selected>Aug 22, 16</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__right -->
+                </div>
+            </div>
+            <!-- END .c-toolbar__group -->
+        </header>
+        <!-- END .c-toolbar -->
+        <header class="c-toolbar">
+            <div class="l-level">
+                <div class="l-level__center">
+                    <div class="btnGroup">
+                        <button class="btn btn--primary btn--outline btn--smart">
+                            <span class="btn__icon"><i class="icon-home"></i></span>
+                            <span class="btn__text">ALL PROJECTS</span>
+                        </button>
+                        <button class="btn btn--primary btn--outline btn--smart is-active">
+                            <span class="btn__icon"><i class="icon-cloud"></i></span>
+                            <span class="btn__text">SHARED</span>
+                        </button>
+                        <button class="btn btn--primary btn--outline btn--smart">
+                            <span class="btn__icon"><i class="icon-images3"></i></span>
+                            <span class="btn__text">MEDIA FILES</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- END .l-level__center -->
+                <div class="l-level__left">
+                    <h1 class="c-toolbar__title">All Projects <small>34 Projects</small></h1>
+                </div>
+                <!-- END .l-level__left -->
+                <div class="l-level__right">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-control has-iconRight">
+                                    <i class="icon-search form-iconRight u-mr-5"></i>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__item -->
+                    <div class="l-level__item">
+                        <a href="#" class="btn btn--success">
+                            <i class="icon-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- END .l-level__right -->
+            </div>
+        </header>
+        <!-- END .c-toolbar -->
+        <header class="c-toolbar c-toolbar--ghost">
+            <div class="l-level">
+                <div class="l-level__left">
+                    <div class="c-cell">
+                        <div class="c-cell__media">
+                            <i class="icon-stats-bars3"></i>
+                        </div>
+                        <div class="c-cell__content">
+                            <h1 class="c-toolbar__title">Dashboard</h1>
+                            <ol class="c-breadcrumb">
+                                <li class="c-breadcrumb__item">
+                                    <a href="#" class="c-breadcrumb__link">Home</a>
+                                </li>
+                                <li class="c-breadcrumb__item">
+                                    <a href="#" class="c-breadcrumb__link">Library</a>
+                                </li>
+                                <li class="c-breadcrumb__item">
+                                    Book
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- END .c-cell -->
+                </div>
+                <!-- END .l-level__left -->
+                <div class="l-level__right">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-control has-iconRight">
+                                    <i class="icon-search form-iconRight u-mr-5"></i>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END .l-level__item -->
+                    <div class="l-level__item">
+                        <a href="#" class="btn btn--info btn--smart">
+                            <i class="icon-plus-circle u-mr-5"></i>New Post
+                        </a>
+                    </div>
+                </div>
+                <!-- END .l-level__right -->
+            </div>
+        </header>
+        <!-- END .c-toolbar -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

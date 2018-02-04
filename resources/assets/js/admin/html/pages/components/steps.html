@@ -1,0 +1,263 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h2 class="c-panel__title">Steps</h2>
+            </header>
+            <div class="c-panel__body">
+                <div class="u-mb-15">
+                    <ol class="c-steps">
+                        <li class="c-steps__item is-finished">
+                            <div class="c-steps__media">
+                                <span class="c-steps__count">1</span>
+                            </div>
+                            <div class="c-steps__content">
+                                <div class="c-steps__title">Finished</div>
+                                <div class="c-steps__desc">This is a description</div>
+                            </div>
+                        </li>
+                        <!-- END .c-steps__item -->
+                        <li class="c-steps__item is-active">
+                            <div class="c-steps__media">
+                                <span class="c-steps__count">2</span>
+                            </div>
+                            <div class="c-steps__content">
+                                <div class="c-steps__title">In Progress</div>
+                                <div class="c-steps__desc">This is a description</div>
+                            </div>
+                        </li>
+                        <!-- END .c-steps__item -->
+                        <li class="c-steps__item">
+                            <div class="c-steps__media">
+                                <span class="c-steps__count">3</span>
+                            </div>
+                            <div class="c-steps__content">
+                                <div class="c-steps__title">Waiting</div>
+                                <div class="c-steps__desc">This is a description</div>
+                            </div>
+                        </li>
+                        <!-- END .c-steps__item -->
+                    </ol>
+                </div>
+                <p>Structure:</p>
+                <ul>
+                    <li>
+                        <code>.c-steps</code>
+                        <ul>
+                            <li>
+                                <code>.c-steps__item</code>
+                                <ul>
+                                    <li>
+                                        <code>.c-steps__media</code>
+                                        <ul>
+                                            <li><code>.c-steps__count</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>.c-steps__content</code>
+                                        <ul>
+                                            <li><code>.c-steps__title</code></li>
+                                            <li><code>.c-steps__desc</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                {% markdown %}
+                ```html
+                <ol class="c-steps">
+                    <li class="c-steps__item is-finished">
+                        <div class="c-steps__media">
+                            <span class="c-steps__count">1</span>
+                        </div>
+                        <div class="c-steps__content">
+                            <div class="c-steps__title">Finished</div>
+                            <div class="c-steps__desc">This is a description</div>
+                        </div>
+                    </li>
+                    <li class="c-steps__item is-active">
+                        <div class="c-steps__media">
+                            <span class="c-steps__count">2</span>
+                        </div>
+                        <div class="c-steps__content">
+                            <div class="c-steps__title">In Progress</div>
+                            <div class="c-steps__desc">This is a description</div>
+                        </div>
+                    </li>
+                    <li class="c-steps__item">
+                        <div class="c-steps__media">
+                            <span class="c-steps__count">3</span>
+                        </div>
+                        <div class="c-steps__content">
+                            <div class="c-steps__title">Waiting</div>
+                            <div class="c-steps__desc">This is a description</div>
+                        </div>
+                    </li>
+                </ol>
+                ```
+                {% endmarkdown %}
+            </div>
+            <!-- END .c-panel__body -->
+        </section>
+        <!-- END .c-panel -->
+        <div class="l-row">
+            <div class="l-col-6@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Vertical</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <ol class="c-steps c-steps--y">
+                                <li class="c-steps__item is-finished">
+                                    <div class="c-steps__media">
+                                        <span class="c-steps__count">1</span>
+                                    </div>
+                                    <div class="c-steps__content">
+                                        <div class="c-steps__title">Finished</div>
+                                        <div class="c-steps__desc">This is a description</div>
+                                    </div>
+                                </li>
+                                <!-- END .c-steps__item -->
+                                <li class="c-steps__item is-active">
+                                    <div class="c-steps__media">
+                                        <span class="c-steps__count">2</span>
+                                    </div>
+                                    <div class="c-steps__content">
+                                        <div class="c-steps__title">In Progress</div>
+                                        <div class="c-steps__desc">This is a description</div>
+                                    </div>
+                                </li>
+                                <!-- END .c-steps__item -->
+                                <li class="c-steps__item">
+                                    <div class="c-steps__media">
+                                        <span class="c-steps__count">3</span>
+                                    </div>
+                                    <div class="c-steps__content">
+                                        <div class="c-steps__title">Waiting</div>
+                                        <div class="c-steps__desc">This is a description</div>
+                                    </div>
+                                </li>
+                                <!-- END .c-steps__item -->
+                            </ol>
+                        </div>
+                        <p>
+                            By adding <code>.c-steps--y</code> modifier class to create vertical align steps.
+                        </p>
+                        {% markdown %}
+                        ```html
+                        <ol class="c-steps c-steps--y">
+                            <li class="c-steps__item is-finished">
+                                <div class="c-steps__media">
+                                    <span class="c-steps__count">1</span>
+                                </div>
+                                <div class="c-steps__content">
+                                    <div class="c-steps__title">Finished</div>
+                                    <div class="c-steps__desc">This is a description</div>
+                                </div>
+                            </li>
+                            ...
+                        </ol>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@lg -->
+            <div class="l-col-6@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <ol class="c-steps u-mb-20">
+                            <li class="c-steps__item is-finished">
+                                <div class="c-steps__media">
+                                    <span class="c-steps__count">1</span>
+                                </div>
+                                <div class="c-steps__content">
+                                    <div class="c-steps__title">Finished</div>
+                                    <div class="c-steps__desc">This is a description</div>
+                                </div>
+                            </li>
+                            <!-- END .c-steps__item -->
+                            <li class="c-steps__item is-active">
+                                <div class="c-steps__media">
+                                    <span class="c-steps__count">2</span>
+                                </div>
+                                <div class="c-steps__content">
+                                    <div class="c-steps__title">In Progress</div>
+                                    <div class="c-steps__desc">This is a description</div>
+                                </div>
+                            </li>
+                            <!-- END .c-steps__item -->
+                            <li class="c-steps__item">
+                                <div class="c-steps__media">
+                                    <span class="c-steps__count">3</span>
+                                </div>
+                                <div class="c-steps__content">
+                                    <div class="c-steps__title">Waiting</div>
+                                    <div class="c-steps__desc">This is a description</div>
+                                </div>
+                            </li>
+                            <!-- END .c-steps__item -->
+                        </ol>
+                        <form action="#">
+                            <div class="l-row">
+                                <div class="form-group l-col-12 l-col-6@sm">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" placeholder="Enter your name" class="form-input">
+                                </div>
+                                <!-- END .form-group -->
+                                <div class="form-group l-col-12 l-col-6@sm">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input">
+                                </div>
+                                <!-- END .form-group -->
+                            </div>
+                            <!--END .row-->
+                            <div class="form-group">
+                                <label class="form-label">Gender</label>
+                                <div class="radio-inline">
+                                    <label class="form-radio">
+                                        <input type="radio" name="gendar" value="male">
+                                        <span class="form-radio__indicator"></span>
+                                        <span class="form-radio__text">Male</span>
+                                    </label>
+                                    <!-- END .radio -->
+                                    <label class="form-radio">
+                                        <input type="radio" name="gendar" value="female">
+                                        <span class="form-radio__indicator"></span>
+                                        <span class="form-radio__text">Female</span>
+                                    </label>
+                                    <!-- END .radio -->
+                                </div>
+                                <!-- END .radio-inline -->
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Say somthing nice."></textarea>
+                            </div>
+                            <!--END .form-group-->
+                            <div class="form-group">
+                                <button role="button" class="btn btn--default">Previous</button>
+                                <button role="button" class="btn btn--primary">Next</button>
+                            </div>
+                            <!-- END .form-group -->
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@lg -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

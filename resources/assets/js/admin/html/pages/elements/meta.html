@@ -1,0 +1,71 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Meta Element</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        <span class="meta">
+                            <i class="icon-bubble u-mr5"></i>
+                            5 Comments
+                        </span>
+                        <div class="u-mb-15"></div>
+                        {% markdown %}
+                        Meta is a widely used element as secondary information of content. You can easily
+                        create vertical-algin meta element and combine it with other components.
+
+                        ```html
+                        <span class="meta">
+                            <i class="icon-comment u-mr5"></i>
+                            5 Comments
+                        </span>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Meta List</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="metaList">
+                            <span class="meta">China</span>
+                            <span class="meta">Sichuan</span>
+                            <span class="meta">Chengdu</span>
+                        </div>
+                        <!-- END .metaList -->
+                        <div class="u-mb-15"></div>
+                        {% markdown %}
+                        Meta can be grouped by placing multiple `.meta` elements into a `.metaList` container element.
+
+                        ```html
+                        <div class="metaList">
+                            <span class="meta">China</span>
+                            <span class="meta">Sichuan</span>
+                            <span class="meta">Chengdu</span>
+                        </div>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

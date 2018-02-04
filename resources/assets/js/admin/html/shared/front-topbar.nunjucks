@@ -1,0 +1,56 @@
+<header class="l-app__topbar u-pl-0 u-pr-0">
+    <div class="l-container">
+        <nav class="c-navbar c-navbar--light">
+            <div class="c-navbar__left">
+                <a role="button" class="c-navbar__item u-hiddenUp@md" v-toggle:sidebar>
+                    <i class="i-menu i-menu--light"></i>
+                </a>
+                <a class="c-navbar__item u-hiddenDown@sm">
+                    <img src="{{root}}../dist/images/logo-white.svg">
+                </a>
+                <a href="#" class="c-navbar__item u-hiddenDown@sm">Home</a>
+                <a href="#" class="c-navbar__item u-hiddenDown@sm">Projects</a>
+                <a href="#" class="c-navbar__item u-hiddenDown@sm">Support</a>
+                <!-- END .c-navbar__item -->
+            </div>
+            <!-- END .c-navbar__left -->
+            <div class="c-navbar__right">
+                <a class="c-navbar__item">
+                    <i class="icon-bell2"></i>
+                </a>
+                <!-- END .c-nav__item -->
+                <a class="c-navbar__item">
+                    <i class="icon-envelop3"></i>
+                </a>
+                <!-- END .c-nav__item -->
+                <drop class="c-navbar__item">
+                    <a role="button" class="c-account" slot="trigger">
+                        <div class="c-account__media">
+                            <img src="{{root}}assets/images/avatar.jpg" class="avatar">
+                        </div>
+                        <div class="c-account__after">
+                            <i class="i-arrowDown i-arrowDown--light"></i>
+                        </div>
+                    </a>
+                    <drop-content placement="bottom-end" slot="content">
+                        <ul class="c-nav c-nav--menus">
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Profile</a>
+                            </li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Inbox</a>
+                            </li>
+                            <li class="c-nav__divider"></li>
+                            <li class="c-nav__item">
+                                <a href="#" class="c-nav__link">Log out</a>
+                            </li>
+                        </ul>
+                    </drop-content>
+                </drop>
+            </div>
+        </nav>
+        <!-- END .c-navbar -->
+    </div>
+    <!-- END .l-container -->
+</header>
+<!-- END .l-app__topbar -->

@@ -1,0 +1,279 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-toolbar u-mb-0">
+                <div class="c-toolbar__group l-level">
+                    <div class="l-level__left is-auto">
+                        <div class="c-cell">
+                            <div class="c-cell__media">
+                                <i class="icon-stats-bars3"></i>
+                            </div>
+                            <div class="c-cell__content">
+                                <h1 class="c-toolbar__title">Data Table</h1>
+                                <ol class="c-breadcrumb">
+                                    <li class="c-breadcrumb__item">
+                                        <a href="#" class="c-breadcrumb__link">Dashboard</a>
+                                    </li>
+                                    <li class="c-breadcrumb__item">
+                                        <a href="#" class="c-breadcrumb__link">Tables</a>
+                                    </li>
+                                    <li class="c-breadcrumb__item">
+                                        data
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- END .l-media -->
+                    </div>
+                    <!-- END .l-level__left -->
+                    <div class="l-level__right is-fixed">
+                        <a href="#" class="btn btn--success btn--smart">
+                            <i class="icon-plus3 u-mr-5"></i>New Item
+                        </a>
+                    </div>
+                    <!-- END .l-level__right -->
+                </div>
+                <!-- END .c-toolbar__group -->
+                <div class="c-toolbar__group l-level">
+                    <div class="l-level__left is-auto">
+                        <div class="l-level__item u-hiddenDown@md">
+                            <ul class="c-nav c-nav--pills">
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link is-active">All (32)</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Publish (16)</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Pendding (12)</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a href="#" class="c-nav__link">Draft (4)</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <drop class="l-level__item u-hiddenUp@md">
+                            <a role="button" class="btn btn--default" slot="trigger">Menu</a>
+                            <div class="c-drop__content" slot="content">
+                                <ul class="c-nav c-nav--pills c-nav--stacked">
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">All (32)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Publish (16)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Pendding (12)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Draft (4)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </drop>
+                    </div>
+                    <!-- END .l-level__left -->
+                    <div class="l-level__right is-fixed">
+                        <div class="l-level__item">
+                            <form action="#" class="form-inline">
+                                <div class="form-group">
+                                    <div class="form-control has-icon">
+                                        <i class="form-icon icon-search4 u-ml-5"></i>
+                                        <input type="text" class="form-input form-input--rounded">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- END .l-level__item -->
+                    </div>
+                    <!-- END .l-level__right -->
+                </div>
+                <!-- END .c-toolbar__group -->
+            </header>
+            <!-- END .c-toolbar -->
+            <table class="table table--data">
+                <thead>
+                    <tr>
+                        <th class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <th class="u-hiddenDown@md">#ID</th>
+                        <th>
+                            <a role="button">
+                                Product Name<i class="i-sort is-down"></i>
+                            </a>
+                        </th>
+                        <th>Category</th>
+                        <th>
+                            <a role="button">
+                                Price<i class="i-sort"></i>
+                            </a>
+                        </th>
+                        <th>
+                            <a role="button">
+                                Stock<i class="i-sort"></i>
+                            </a>
+                        </th>
+                        <th class="u-textCenter">Status</th>
+                        <th>Vendor</th>
+                        <th class="u-textRight">
+                            <a role="button">
+                                Date<i class="i-sort"></i>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <th class="u-hiddenDown@md">#ID</th>
+                        <th>
+                            <a role="button">
+                                Product Name<i class="i-sort is-down"></i>
+                            </a>
+                        </th>
+                        <th>Category</th>
+                        <th>
+                            <a role="button">
+                                Price<i class="i-sort"></i>
+                            </a>
+                        </th>
+                        <th>
+                            <a role="button">
+                                Stock<i class="i-sort"></i>
+                            </a>
+                        </th>
+                        <th class="u-textCenter">Status</th>
+                        <th>Vendor</th>
+                        <th class="u-textRight">
+                            <a role="button">
+                                Date<i class="i-sort"></i>
+                            </a>
+                        </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <th scope="row" class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <td data-label="ID" class="u-hiddenDown@md">{{product._id}}</td>
+                        <td data-label="Product">
+                            <a role="button">{{product.name}}</a>
+                            <div class="u-fs-12 u-textMuted">
+                                <i class="fa fa-link"></i> http://www.20theme.com/products/{{product._id}}
+                            </div>
+                        </td>
+                        <td data-label="Category">{{product.category}}</td>
+                        <td data-label="Price"><code>{{product.price}}</code></td>
+                        <td data-label="Stock">{{product.stock}}</td>
+                        <td data-label="Status" class="u-textCenter">
+                            {% if product.status == 'publish' %}
+                            <span class="badge badge--info">Publish</span>
+                            {% elif product.status == 'draft' %}
+                            <span class="badge badge--warning">Draft</span>
+                            {% else %}
+                            <span class="badge badge--default">Outdated</span>
+                            {% endif %}
+                        </td>
+                        <td data-label="Vendor">{{product.vendor}}</td>
+                        <td data-label="Date" class="u-textRight">
+                            <time class="u-fs-12 u-textMuted">{{product.created_at}}</time>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="c-panel__body l-level">
+                <div class="l-level__left is-fixed">
+                    <div class="l-level__item">
+                        <form action="#" class="form-inline">
+                            <div class="form-group">
+                                <div class="form-flex">
+                                    <select class="form-select">
+                                        <option>-- Bulk Action --</option>
+                                        <option value="publish">Publish</option>
+                                        <option value="delete">Delete</option>
+                                    </select>
+                                    <button type="button" class="form-addon btn btn--info">Apply</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="l-level__right is-auto">
+                    <div class="l-level__item">
+                        <nav class="c-pagination c-pagination--bordered">
+                            <span class="c-pagination__item is-disabled">Previous</span>
+                            <em class="c-pagination__item is-active">1</em>
+                            <a href="#" class="c-pagination__item">2</a>
+                            <a href="#" class="c-pagination__item">3</a>
+                            <a href="#" class="c-pagination__item">4</a>
+                            <a href="#" class="c-pagination__item">5</a>
+                            <span class="c-pagination__item is-disabled">...</span>
+                            <a href="#" class="c-pagination__item">99</a>
+                            <a href="#" class="c-pagination__item">100</a>
+                            <a href="#" class="c-pagination__item">Next</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="c-panel">
+            <div class="c-panel__body">
+                {% markdown %}
+                ```html
+                <table class="table table--data">
+                    <thead>
+                        <tr>
+                            <th class="u-hiddenDown@md">#ID</th>
+                            <th>
+                                <a role="button">
+                                    Product Name<i class="i-sort is-down"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th class="u-hiddenDown@md">#ID</th>
+                            <th>
+                                <a role="button">
+                                    Product Name<i class="i-sort is-down"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            ...
+                            <td data-label="ID" class="u-hiddenDown@md">...</td>
+                            <td data-label="Product">...</td>
+                            ...
+                        </tr>
+                    </tbody>
+                </table>
+                ```
+                {% endmarkdown %}
+            </div>
+        </div>
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

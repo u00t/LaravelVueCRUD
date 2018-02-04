@@ -1,0 +1,151 @@
+.c-nav--actions {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  > .c-nav__item {
+    &:not(:first-child) {
+      margin-left: $space-inline-base;
+    }
+    > .c-nav__link {
+      color: inherit;
+      padding: 0;
+      line-height: 1;
+    }
+  }
+}
+
+// Underline Nav
+// -----------------------------------------------------------------------------
+.c-nav--underline {
+  display: flex;
+  border-bottom: 1px solid $border-color;
+  > .c-nav__item {
+    position: relative;
+    margin-bottom: -1px;
+    z-index: 15;
+    > .c-nav__link {
+      color: $text-color;
+      padding: 0 12px 6px 12px;
+      border-bottom: 2px solid transparent;
+      &:hover {
+        color: map-get($master-palette, 'primary');
+      }
+      &.is-active {
+        color: map-get($master-palette, 'primary');
+        border-bottom-color: map-get($master-palette, 'primary');
+      }
+    }
+  }
+}
+
+// Gap & Dot Nav
+// -----------------------------------------------------------------------------
+.c-nav--gap,
+.c-nav--dot {
+  @include clearfix;
+  > .c-nav__item {
+    position: relative;
+    float: left;
+    &:not(:last-child) {
+      padding-right: 12px;
+      margin-right: 12px;
+    }
+
+    > .c-nav__link {
+      color: $text-color;
+      padding-left: 0;
+      padding-right: 0;
+      &:hover {
+        color: $link-color;
+      }
+      &.is-active {
+        color: map-get($master-palette, 'primary');
+      }
+    }
+  }
+}
+
+.c-nav--gap {
+  > .c-nav__item:not(:last-child):after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 31%;
+    width: 1px;
+    height: 38%;
+    background-color: $divider-color;
+  }
+}
+
+.c-nav--dot {
+  > .c-nav__item:not(:last-child):after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -1px;
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: $muted-color;
+  }
+}
+
+// Line Nav
+// -----------------------------------------------------------------------------
+.c-nav--lineBefore,
+.c-nav--lineAfter,
+.c-nav--lineAround {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.c-nav--lineBefore {
+  &:before {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    margin-right: 8px;
+    background-color: $divider-color;
+  }
+}
+
+.c-nav--lineAfter {
+  &:after {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    margin-left: 8px;
+    background-color: $divider-color;
+  }
+}
+
+.c-nav--lineAround {
+  justify-content: center;
+  &:before {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    margin-right: 8px;
+    background-color: $divider-color;
+  }
+  &:after {
+    content: " ";
+    display: block;
+    height: 1px;
+    flex: 1;
+    min-width: 0;
+    margin-left: 8px;
+    background-color: $divider-color;
+  }
+}

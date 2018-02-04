@@ -1,0 +1,107 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Note</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>Note component provide prompt messages in a page for users to take notice.</p>
+                        <div class="c-note">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, ratione!
+                        </div>
+                        {% markdown %}
+                        ```html
+                        <div class="c-note">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, ratione!
+                        </div>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Types</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>By adding the following modifier classes on <code>.c-note</code> container to quick create different styled Note:</p>
+                        <ul>
+                            <li><code>.c-note--info</code></li>
+                            <li><code>.c-note--danger</code></li>
+                            <li><code>.c-note--success</code></li>
+                            <li><code>.c-note--warning</code></li>
+                        </ul>
+                        <div class="c-note c-note--warning">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, vero.
+                        </div>
+                        <div class="c-note c-note--success">
+                            consectetur adipisicing elit. Earum similique dolor accusantium deleniti labore. Facilis!
+                        </div>
+                        <div class="c-note c-note--info">
+                            <strong>Nisi consectetur</strong> officia quaerat, eum, iste optio facilis fugit. Blanditiis, delectus, quia.
+                        </div>
+                        <div class="c-note c-note--danger">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, ratione!
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Vue Note</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>We have pre-built Note component for Vue.js</p>
+                        <note :closeable="true" type="danger">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus molestias impedit eum, quasi nam nobis.
+                        </note>
+                        {% markdown %}
+                        ```html
+                        <note :closeable="true" type="danger">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus molestias impedit eum, quasi nam nobis.
+                        </note>
+                        ```
+                        {% endmarkdown %}
+                        <table class="table table--bordered table--responsive">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Property">type</td>
+                                    <td data-label="Description">
+                                        The basic style of note: <code>danger</code>, <code>info</code>, <code>warning</code>, <code>success</code>
+                                    </td>
+                                    <td data-label="Type">string</td>
+                                    <td data-label="Default">—</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Property">closeable</td>
+                                    <td data-label="Description">Whether Note can be closed</td>
+                                    <td data-label="Type">boolean</td>
+                                    <td data-label="Default">false</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

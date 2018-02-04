@@ -1,0 +1,21 @@
+$heights: (180, 220, 280, 320, 360);
+$widths: (180, 220, 280, 320, 360);
+
+@each $width in $widths {
+  .u-w-#{$width} {
+    width: #{$width}px;
+  }
+}
+.u-w--auto {
+  width: auto !important;
+}
+
+
+@each $height in $heights {
+  .u-h-#{$height} {
+    height: #{$height}px;
+  }
+}
+.u-h--auto {
+  height: auto !important;
+}

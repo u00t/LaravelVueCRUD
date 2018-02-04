@@ -1,0 +1,246 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h1 class="c-panel__title">Tabs</h1>
+            </header>
+            <div class="c-panel__body">
+                <p>
+                    <strong>Tabs</strong> provide an easy way to switch between different views.
+                </p>
+                {% markdown %}
+                ```html
+                <tabs active-name="s1" type="cards" size="lg">
+                    <tab-pane label="Section #1" name="s1">
+                        ...
+                    </tab-pane>
+                    <tab-pane label="Section #2" name="s2">
+                        ...
+                    </tab-pane>
+                    <tab-pane label="Section #3" name="s3">
+                        ...
+                    </tab-pane>
+                </tabs>
+                ```
+                {% endmarkdown %}
+                <table class="table table--bordered table--responsive">
+                    <caption>Tabs</caption>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Property">active-name</td>
+                            <td data-label="Description">
+                                Current TabPane's key
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">—</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">type</td>
+                            <td data-label="Description">
+                                Basic style of tabs's nav: <code>cards</code>, <code>underline</code>, <code>dot</code>, <code>gap</code>, <code>pills</code>, <code>tabs</code>
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">underline</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">size</td>
+                            <td data-label="Description">
+                                The size of tabs's nav: <code>sm</code>, <code>lg</code>
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">—</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">v-on:change</td>
+                            <td data-label="Description">
+                                Callback when tab is switched, TabPane's name as argument.
+                            </td>
+                            <td data-label="Type">
+                                Function
+                            </td>
+                            <td data-label="Default">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table--bordered table--responsive">
+                    <caption>TabPane</caption>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Property">label</td>
+                            <td data-label="Description">
+                                The label of TabPane
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">—</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">name</td>
+                            <td data-label="Description">
+                                TabPane's key
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <tabs active-name="one" type="underline">
+                            <tab-pane label="One" name="one" class="u-mt-10">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Sed vel omnis optio incidunt
+                                sit commodi eum dolore aspernatur, velit
+                                similique molestias distinctio accusantium iste
+                                excepturi non facilis magni modi consectetur
+                                itaque perspiciatis laudantium, facere enim
+                                quaerat. Enim adipisci natus reprehenderit
+                            </tab-pane>
+                            <tab-pane label="Two" name="two" class="u-mt-10">
+                                possimus repudiandae laudantium sit officiis?
+                                Labore debitis nam laudantium maxime vitae a
+                                cumque quas. Fugit sed quo, saepe dolorem.
+                                Deleniti esse, quidem accusantium, iste maxime
+                                deserunt veniam aspernatur quaerat ratione.
+                                Asperiores autem repellendus, magni hic? Vero
+                                repudiandae, perferendis tenetur doloremque
+                                voluptatum facere dicta inventore voluptatibus
+                                accusantium culpa ea obcaecati, laboriosam
+                            </tab-pane>
+                            <tab-pane label="Three" name="three" class="u-mt-10">
+                                adipisci eos explicabo, quas unde. Assumenda
+                                mollitia laudantium, consequatur, non facere
+                                laboriosam repellat voluptas unde animi
+                                distinctio nisi, neque fuga atque
+                                exercitationem! Ullam quod tenetur dignissimos
+                                excepturi minima, rerum, ducimus nostrum
+                                necessitatibus blanditiis neque praesentium quas
+                                hic alias illum, ut deserunt consequuntur
+                                asperiores quae deleniti sunt labore! Fugit
+                                ratione aliquam, nihil possimus corrupti id
+                                explicabo. Quibusdam, est, hic. Accusantium,
+                                cumque?
+                            </tab-pane>
+                        </tabs>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        <tabs active-name="one" type="pills">
+                            <tab-pane label="One" name="one" class="u-mt-10">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Sed vel omnis optio incidunt
+                                sit commodi eum dolore aspernatur, velit
+                                similique molestias distinctio accusantium iste
+                                excepturi non facilis magni modi consectetur
+                                itaque perspiciatis laudantium, facere enim
+                                quaerat. Enim adipisci natus reprehenderit
+                            </tab-pane>
+                            <tab-pane label="Two" name="two" class="u-mt-10">
+                                possimus repudiandae laudantium sit officiis?
+                                Labore debitis nam laudantium maxime vitae a
+                                cumque quas. Fugit sed quo, saepe dolorem.
+                                Deleniti esse, quidem accusantium, iste maxime
+                                deserunt veniam aspernatur quaerat ratione.
+                                Asperiores autem repellendus, magni hic? Vero
+                                repudiandae, perferendis tenetur doloremque
+                                voluptatum facere dicta inventore voluptatibus
+                                accusantium culpa ea obcaecati, laboriosam
+                            </tab-pane>
+                            <tab-pane label="Three" name="three" class="u-mt-10">
+                                adipisci eos explicabo, quas unde. Assumenda
+                                mollitia laudantium, consequatur, non facere
+                                laboriosam repellat voluptas unde animi
+                                distinctio nisi, neque fuga atque
+                                exercitationem! Ullam quod tenetur dignissimos
+                                excepturi minima, rerum, ducimus nostrum
+                                necessitatibus blanditiis neque praesentium quas
+                                hic alias illum, ut deserunt consequuntur
+                                asperiores quae deleniti sunt labore! Fugit
+                                ratione aliquam, nihil possimus corrupti id
+                                explicabo. Quibusdam, est, hic. Accusantium,
+                                cumque?
+                            </tab-pane>
+                        </tabs>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <tabs active-name="s1" type="cards" size="lg">
+            <tab-pane label="Section #1" name="s1">
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Sed vel omnis optio incidunt
+                sit commodi eum dolore aspernatur, velit
+                similique molestias distinctio accusantium iste
+                excepturi non facilis magni modi consectetur
+                itaque perspiciatis laudantium, facere enim
+                quaerat. Enim adipisci natus reprehenderit
+            </tab-pane>
+            <tab-pane label="Section #2" name="s2">
+                possimus repudiandae laudantium sit officiis?
+                Labore debitis nam laudantium maxime vitae a
+                cumque quas. Fugit sed quo, saepe dolorem.
+                Deleniti esse, quidem accusantium, iste maxime
+                deserunt veniam aspernatur quaerat ratione.
+                Asperiores autem repellendus, magni hic? Vero
+                repudiandae, perferendis tenetur doloremque
+                voluptatum facere dicta inventore voluptatibus
+                accusantium culpa ea obcaecati, laboriosam
+            </tab-pane>
+            <tab-pane label="Section #3" name="s3">
+                adipisci eos explicabo, quas unde. Assumenda
+                mollitia laudantium, consequatur, non facere
+                laboriosam repellat voluptas unde animi
+                distinctio nisi, neque fuga atque
+                exercitationem! Ullam quod tenetur dignissimos
+                excepturi minima, rerum, ducimus nostrum
+                necessitatibus blanditiis neque praesentium quas
+                hic alias illum, ut deserunt consequuntur
+                asperiores quae deleniti sunt labore! Fugit
+                ratione aliquam, nihil possimus corrupti id
+                explicabo. Quibusdam, est, hic. Accusantium,
+                cumque?
+            </tab-pane>
+        </tabs>
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

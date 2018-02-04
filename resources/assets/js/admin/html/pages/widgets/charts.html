@@ -1,0 +1,177 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row l-panelGroup">
+            <div class="l-col-2@xl l-col-3@lg l-col-4@md l-col-6@sm">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Total Revenue</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="trc" width="300" height="200"></canvas>
+                        <div class="l-level u-mt-20">
+                            <div class="l-level__item">
+                                <h6>$10000</h6>
+                                <span class="meta">Target</span>
+                            </div>
+                            <div class="l-level__item">
+                                <h6>$524</h6>
+                                <span class="meta">Last week</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-2@xl -->
+            <div class="l-col-2@xl l-col-3@lg l-col-4@md l-col-6@sm">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Account for revenue</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="afrc" width="300" height="200"></canvas>
+                        <div class="l-level u-mt-20">
+                            <div class="l-level__item">
+                                <h6>$684</h6>
+                                <span class="meta">China</span>
+                            </div>
+                            <div class="l-level__item">
+                                <h6>$238</h6>
+                                <span class="meta">USA</span>
+                            </div>
+                            <div class="l-level__item">
+                                <h6>$529</h6>
+                                <span class="meta">Ohters</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-2@xl -->
+            <div class="l-col-2@xl l-col-3@lg l-col-4@md l-col-6@sm">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Sales Report</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="c-cell u-mb-10">
+                            <div class="c-cell__media">
+                                <i class="icon-2x icon-stats-decline2 u-color-danger"></i>
+                            </div>
+                            <div class="c-cell__content">
+                                <h4 class="u-m-0">26,321</h4>
+                            </div>
+                        </div>
+                        <div class="l-level">
+                            <div class="l-level__item">
+                                <h6>$10000</h6>
+                                <span class="meta">Target</span>
+                            </div>
+                            <div class="l-level__item">
+                                <h6>$7,985</h6>
+                                <span class="meta">Last Month</span>
+                            </div>
+                            <div class="l-level__item">
+                                <h6>$524</h6>
+                                <span class="meta">Last week</span>
+                            </div>
+                        </div>
+                        <canvas id="src" width="300" height="180"></canvas>
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-2@xl -->
+            <div class="l-col-2@xl l-col-3@lg l-col-4@md l-col-6@sm">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Server</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="sc" width="300" height="200"></canvas>
+                        <div class="l-level u-mt-30">
+                            <div class="l-level__item">
+                                <span class="meta"><i class="badge badge--success"></i> Used</span>
+                            </div>
+                            <div class="l-level__item">
+                                <span class="meta"><i class="badge"></i> Free</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-3@lg -->
+            <div class="l-col-4@xl l-col-4@lg l-col-6@md l-col-6@sm">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Progress</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="pc" width="600" height="220"></canvas>
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+            </div>
+            <!-- END .l-col-3@lg -->
+        </div>
+        <!-- END .l-row -->
+        <div class="l-row">
+            <div class="l-col-6@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Total Sales</h2>
+                        <div class="c-panel__controls">
+                            <div class="btnGroup">
+                                <button class="btn btn--default">Week</button>
+                                <button class="btn btn--default">Month</button>
+                                <button class="btn btn--default is-active">Year</button>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="tsc" width="600" height="200"></canvas>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@lg -->
+            <div class="l-col-6@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Orders</h2>
+                        <div class="c-panel__controls">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="form-flex">
+                                        <span class="form-addon">Product</span>
+                                        <select class="form-select">
+                                            <option value="0">iPhone 6</option>
+                                            <option value="1">iPhone 7</option>
+                                            <option value="2">iPhone 8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="c-panel__body">
+                        <canvas id="oc" width="600" height="200"></canvas>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@lg -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}
+
+{% block scripts %}
+<script src="{{root}}../dist/vendor/chart/Chart.bundle.min.js"></script>
+<script src="{{root}}assets/js/pages/chart-widgets.js"></script>
+{% endblock %}

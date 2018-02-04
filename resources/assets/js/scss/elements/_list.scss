@@ -1,0 +1,9 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.25;
+  li:not(:last-child) {
+    margin-bottom: 2px;
+  }
+}

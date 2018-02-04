@@ -1,5 +1,5 @@
 <template>
-    <div class="btn-group-vertical" role="group" aria-label="Actions" v-cloak>
+    <div class="btn-group" role="group" aria-label="Actions" v-cloak>
         <button
             type="button"
             class="btn btn-primary btn-xs"

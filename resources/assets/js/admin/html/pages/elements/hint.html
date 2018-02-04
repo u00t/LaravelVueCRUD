@@ -1,0 +1,100 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Hint</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <button class="btn btn--info hint u-mb-15" data-label="I'm always here!">Hover Me</button>
+                        {% markdown %}
+                        Hint is built with pure css code. It can be apply on any elements who's
+                        `overflow` is not hidden and `position` is not undefined.
+
+                        ```html
+                        <button class="btn btn--info hint" data-label="I'm always here!">Hover Me</button>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Sizes</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="l-row u-textCenter">
+                            <div class="l-col-4@md">
+                                <button class="btn btn--info hint hint--sm u-mb-15" data-label="Lorem ipsum dolor sit amet.">Small Hint</button>
+                            </div>
+                            <div class="l-col-4@md">
+                                <button class="btn btn--info hint hint--md u-mb-15" data-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ratione!">Medium Hint</button>
+                            </div>
+                            <div class="l-col-4@md">
+                                <button class="btn btn--info hint hint--lg u-mb-15" data-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem architecto, illo recusandae dolorem magni odit.">Large Hint</button>
+                            </div>
+                        </div>
+                        {% markdown %}
+                        By default, Hint will always remain single-line. you can change this behavior by
+                        adding `.hint--sm`, `.hint--md` or `.hint--lg` modifier class.
+
+                        ```html
+                        <button class="btn btn--info hint hint--sm" data-label="Lorem ipsum dolor sit amet.">Small Hint</button>
+                        <button class="btn btn--info hint hint--md" data-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ratione!">Medium Hint</button>
+                        <button class="btn btn--info hint hint--lg" data-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem architecto, illo recusandae dolorem magni odit.">Large Hint</button>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h2 class="c-panel__title">Position</h2>
+            </header>
+            <div class="c-panel__body">
+                <div class="l-row u-textCenter">
+                    <div class="l-col-6@sm l-col-3@md">
+                        <button class="btn btn--info hint u-mb-15" data-label="Hello, There!">Hover me!</button>
+                    </div>
+                    <div class="l-col-6@sm l-col-3@md">
+                        <button class="btn btn--info hint hint--right u-mb-15" data-label="Hello, There!">Hover me!</button>
+                    </div>
+                    <div class="l-col-6@sm l-col-3@md">
+                        <button class="btn btn--info hint hint--bottom u-mb-15" data-label="Hello, There!">Hover me!</button>
+                    </div>
+                    <div class="l-col-6@sm l-col-3@md">
+                        <button class="btn btn--info hint hint--left u-mb-15" data-label="Hello, There!">Hover me!</button>
+                    </div>
+              </div>
+              {% markdown %}
+              Hint use top as default position. By adding `.hint--right`, `.hint--bottom` or
+              `.hint--left` modifier class to change hint position.
+
+              ```html
+              <button class="btn btn--info hint" data-label="Hello, There!">Hover me!</button>
+              <button class="btn btn--info hint hint--right" data-label="Hello, There!">Hover me!</button>
+              <button class="btn btn--info hint hint--bottom" data-label="Hello, There!">Hover me!</button>
+              <button class="btn btn--info hint hint--left" data-label="Hello, There!">Hover me!</button>
+              ```
+              {% endmarkdown %}
+            </div>
+        </section>
+        <!-- END .c-panel -->
+
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

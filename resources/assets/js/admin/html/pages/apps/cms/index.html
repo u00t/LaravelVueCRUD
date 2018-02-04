@@ -1,0 +1,218 @@
+{% set root = '../../' %}
+
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-toolbar u-mb-0">
+                <div class="c-toolbar__group">
+                    <div class="l-level">
+                        <div class="l-level__left">
+                            <div class="c-cell">
+                                <div class="c-cell__media">
+                                    <i class="icon-quill4"></i>
+                                </div>
+                                <div class="c-cell__content">
+                                    <h1 class="c-toolbar__title">Posts</h1>
+                                </div>
+                            </div>
+                            <!-- END .l-media -->
+                        </div>
+                        <!-- END .l-level__left -->
+                        <div class="l-level__right">
+                            <a href="{{root}}apps/cms/edit.html" class="btn btn--success btn--smart">
+                                <i class="icon-plus-circle u-mr-5"></i>New Post
+                            </a>
+                        </div>
+                        <!-- END .l-level__right -->
+                    </div>
+                    <!-- END .l-level -->
+                </div>
+                <!-- END .c-toolbar__group -->
+                <div class="c-toolbar__group">
+                    <div class="l-level">
+                        <div class="l-level__left">
+                            <div class="l-level__item u-hiddenDown@sm">
+                                <ul class="c-nav c-nav--pills">
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link is-active">All (32)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Publish (16)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Pendding (12)</a>
+                                    </li>
+                                    <li class="c-nav__item">
+                                        <a href="#" class="c-nav__link">Draft (4)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <drop class="l-level__item u-hiddenUp@md">
+                                <a role="button" class="btn btn--default" slot="trigger">Menu</a>
+                                <drop-content slot="content">
+                                    <ul class="c-nav c-nav--menus">
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">All (32)</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Publish (16)</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Pendding (12)</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Draft (4)</a>
+                                        </li>
+                                    </ul>
+                                </drop-content>
+                            </drop>
+                        </div>
+                        <!-- END .l-level__left -->
+                        <div class="l-level__right">
+                            <div class="l-level__item">
+                                <form action="#" class="form-inline">
+                                    <div class="form-group">
+                                        <div class="form-control has-icon">
+                                            <i class="form-icon icon-search4 u-ml-5"></i>
+                                            <input type="text" class="form-input form-input--rounded">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- END .l-level__item -->
+                        </div>
+                        <!-- END .l-level__right -->
+                    </div>
+                    <!-- END .l-level -->
+                </div>
+                <!-- END .c-toolbar__group -->
+            </header>
+            <!-- END .c-toolbar -->
+            <table class="table table--data table--hover">
+                <thead>
+                    <tr>
+                        <th class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <th class="u-hiddenDown@md">#ID</th>
+                        <th>
+                            <a role="button">
+                                Title<i class="i-sort is-down"></i>
+                            </a>
+                        </th>
+                        <th>Category</th>
+                        <th class="u-textCenter">Status</th>
+                        <th>Author</th>
+                        <th class="u-textRight">
+                            <a role="button">
+                                Date<i class="i-sort"></i>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <th class="u-hiddenDown@md">#ID</th>
+                        <th>
+                            <a role="button">
+                                Title<i class="i-sort is-down"></i>
+                            </a>
+                        </th>
+                        <th>Category</th>
+                        <th class="u-textCenter">Status</th>
+                        <th>Author</th>
+                        <th class="u-textRight">
+                            <a role="button">
+                                Date<i class="i-sort"></i>
+                            </a>
+                        </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <th scope="row" class="u-hiddenDown@md">
+                            <label class="form-checkbox u-m-0">
+                                <input type="checkbox">
+                                <span class="form-checkbox__indicator"></span>
+                            </label>
+                        </th>
+                        <td data-label="ID" class="u-hiddenDown@md">{{post._id}}</td>
+                        <td data-label="Post">
+                            <a role="button">{{post.title}}</a>
+                            <div class="u-fs-12 u-textMuted">
+                                <i class="fa fa-link"></i> http://www.20theme.com/posts/{{post._id}}
+                            </div>
+                        </td>
+                        <td data-label="Category">{{post.category}}</td>
+                        <td data-label="Status" class="u-textCenter">
+                            {% if post.status == 'publish' %}
+                            <span class="badge badge--info">Publish</span>
+                            {% elif post.status == 'draft' %}
+                            <span class="badge badge--warning">Draft</span>
+                            {% else %}
+                            <span class="badge badge--default">Outdated</span>
+                            {% endif %}
+                        </td>
+                        <td data-label="Author">{{users[post.user_id].name}}</td>
+                        <td data-label="Date" class="u-textRight">
+                            <time class="u-fs-12 u-textMuted">{{post.created_at}}</time>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="c-toolbar u-m-0">
+                <div class="l-level">
+                    <div class="l-level__left">
+                        <div class="l-level__item">
+                            <form action="#" class="form-inline">
+                                <div class="form-group">
+                                    <div class="form-flex">
+                                        <select class="form-select">
+                                            <option>-- Bulk Action --</option>
+                                            <option value="publish">Publish</option>
+                                            <option value="delete">Delete</option>
+                                        </select>
+                                        <button type="button" class="form-addon btn btn--info">Apply</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="l-level__right">
+                        <div class="l-level__item">
+                            <nav class="c-pagination c-pagination--bordered">
+                                <span class="c-pagination__item is-disabled">Previous</span>
+                                <em class="c-pagination__item is-active">1</em>
+                                <a href="#" class="c-pagination__item">2</a>
+                                <a href="#" class="c-pagination__item">3</a>
+                                <a href="#" class="c-pagination__item">4</a>
+                                <a href="#" class="c-pagination__item">5</a>
+                                <span class="c-pagination__item is-disabled">...</span>
+                                <a href="#" class="c-pagination__item">99</a>
+                                <a href="#" class="c-pagination__item">100</a>
+                                <a href="#" class="c-pagination__item">Next</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

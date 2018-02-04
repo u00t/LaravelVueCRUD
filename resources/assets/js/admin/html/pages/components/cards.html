@@ -1,0 +1,259 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@lg l-col-3@xl">
+                <article class="c-card">
+                    <header class="c-card__header">
+                        <div class="c-card__leading">
+                            <h4 class="c-card__title">Google I/O 2017</h4>
+                            <span class="meta">Software and hardware</span>
+                        </div>
+                        <div class="c-card__control">
+                            <time class="meta">May 17-19, 2017</time>
+                        </div>
+                    </header>
+                    <!-- END .c-card__header -->
+                    <div class="c-card__shot" style="background-image: url(//c1.staticflickr.com/6/5596/14709465907_33b8612bef_b.jpg)">
+                        <a href="#" class="c-card__over">
+                            Google I/O is an annual developer festival held at the outdoor Shoreline Amphitheatre.
+                        </a>
+                    </div>
+                    <!-- END .c-card__shot -->
+                    <div class="c-card__content">
+                        I/O Extended events bring local developer communities together to experience the I/O keynote and sessions with one another in real-time, around the globe. They may also offer unique activities such as hackathons, codelabs, and demos.
+                    </div>
+                    <!-- END .c-card__content -->
+                    <footer class="c-card__footer u-textRight">
+                        <a href="#" class="btn btn--info btn--smart">LEARN MORE</a>
+                    </footer>
+                    <!-- END .c-card__footer -->
+                </article>
+                <!-- END .c-card -->
+            </div>
+            <!-- END .l-col-3@xl -->
+            <div class="l-col-6@lg l-col-2@xl">
+                <article class="c-card c-card--ghost">
+                    <header class="c-card__header">
+                        <div class="c-card__leading">
+                            <h6 class="c-card__title">Google I/O 2017</h6>
+                            <span class="meta">Software and hardware</span>
+                        </div>
+                        <div class="c-card__control">
+                            <time class="meta">May 17-19, 2017</time>
+                        </div>
+                    </header>
+                    <!-- END .c-card__header -->
+                    <div class="c-card__shot" style="background-image: url(//c1.staticflickr.com/6/5596/14709465907_33b8612bef_b.jpg)">
+                        <a href="#" class="c-card__over">
+                            Google I/O is an annual developer festival held at the outdoor Shoreline Amphitheatre.
+                        </a>
+                    </div>
+                    <!-- END .c-card__shot -->
+                    <div class="c-card__content">
+                        I/O Extended events bring local developer communities together to experience the I/O keynote.
+                    </div>
+                    <!-- END .c-card__content -->
+                    <footer class="c-card__footer u-textRight">
+                        <a href="#" class="btn btn--info btn--smart btn--sm">LEARN MORE</a>
+                    </footer>
+                    <!-- END .c-card__footer -->
+                </article>
+                <!-- END .c-card -->
+            </div>
+            <!-- END .l-col-2@xl -->
+            <div class="l-col-7@xl">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h1 class="c-panel__title">Card</h1>
+                    </header>
+                    <div class="c-panel__body">
+                        <ul>
+                            <li>
+                                <code>.c-card</code>
+                                <ul>
+                                    <li>
+                                        <code>.c-card__header</code>
+                                        <ul>
+                                            <li>
+                                                <code>.c-card__leading</code>
+                                                <ul>
+                                                    <li><code>.c-card__title</code></li>
+                                                </ul>
+                                            </li>
+                                            <li><code>.c-card__control</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>.c-card__shot</code>
+                                        <ul>
+                                            <li><code>.c-card__over</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <code>.c-card__content</code>
+                                    </li>
+                                    <li>
+                                        <code>.c-card__footer</code>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>
+                            By adding the <code>.c-card--ghost</code> modifier class to create ghost card.
+                        </p>
+                        {% markdown %}
+                        ```html
+                        <article class="c-card">
+                            <header class="c-card__header">
+                                <div class="c-card__leading">
+                                    <h6 class="c-card__title">Google I/O 2017</h6>
+                                    <span class="meta">Software and hardware</span>
+                                </div>
+                                <div class="c-card__control">
+                                    <time class="meta">May 17-19, 2017</time>
+                                </div>
+                            </header>
+                            <!-- END .c-card__header -->
+                            <div class="c-card__shot" style="background-image: url(...)">
+                                <div class="c-card__over">
+                                    Google I/O is an annual developer festival...
+                                </div>
+                            </div>
+                            <!-- END .c-card__shot -->
+                            <div class="c-card__content">
+                                I/O Extended events bring local developer communities together to experience the I/O keynote.
+                            </div>
+                            <!-- END .c-card__content -->
+                            <footer class="c-card__footer u-textRight">
+                                <a href="#" class="btn btn--info btn--smart btn--sm">LEARN MORE</a>
+                            </footer>
+                            <!-- END .c-card__footer -->
+                        </article>
+                        <!-- END .c-card -->
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-7@xl -->
+        </div>
+        <!-- END .l-row -->
+        <div class="l-row">
+            <div class="l-col-12 l-col-6@sm l-col-6@md l-col-4@lg l-col-3@xl">
+                <article class="c-card">
+                    <div class="c-card__shot" style="background-image: url(https://source.unsplash.com/random/300x400?1)">
+                        <a role="button" class="c-card__over">
+                            Consectetur adipisicing elit. Tempore porro, incidunt, doloremque aspernatur est quibusdam.
+                        </a>
+                    </div>
+                    <div class="c-card__header">
+                        <div class="c-card__leading">
+                            <p class="c-card__title">Lorem ipsum dolor sit amet</p>
+                            <div class="metaList">
+                                <span class="meta">146 Likes</span>
+                                <span class="meta">332 Downloads</span>
+                            </div>
+                        </div>
+                        <div class="c-card__control">
+                            <drop>
+                                <a role="button" class="u-color-muted" slot="trigger"><i class="icon-cog"></i></a>
+                                <drop-content placement="bottom-end" slot="content">
+                                    <ul class="c-nav c-nav--menus">
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Edit</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">View</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Copy Link</a>
+                                        </li>
+                                        <li class="c-nav__divider"></li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link u-color-danger">Delete</a>
+                                        </li>
+                                    </ul>
+                                </drop-content>
+                            </drop>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- END .l-col-3@xl -->
+            <div class="l-col-12 l-col-6@sm l-col-6@md l-col-4@lg l-col-3@xl">
+                <article class="c-card">
+                    <div class="c-card__shot" style="background-image: url(https://source.unsplash.com/random/300x400?2)">
+                        <div class="c-card__over u-flexCenter u-textCenter">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <div class="btnGroup">
+                                <a href="#" class="btn btn--primary btn--outline">View</a>
+                                <a href="#" class="btn btn--primary btn--outline">Copy</a>
+                                <a href="#" class="btn btn--primary btn--outline">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="c-card">
+                    <div class="c-shot c-shot--16x9 u-mb-5" style="background-image: url(https://source.unsplash.com/random/300x400?10)">
+                        <a href="#" class="c-shot__content u-flexCenter">
+                            <i class="icon-3x icon-play2 u-color-white"></i>
+                        </a>
+                    </div>
+                    <header class="c-card__content">
+                        <h5 class="c-card__title">Making the Facebook Social Graph Semantic</h5>
+                        <span class="meta">23:50</span>
+                    </header>
+                </article>
+            </div>
+            <!-- END .l-col-3@xl -->
+            <div class="l-col-12 l-col-6@sm l-col-6@md l-col-4@lg l-col-3@xl">
+                <article class="c-card">
+                    <div class="c-card__shot" style="background-image: url(https://source.unsplash.com/random/300x400?3)">
+                        <div class="c-card__over u-flexCenter">
+                            <a href="#" class="btn btn--primary btn--outline">Buy it anyway</a>
+                        </div>
+                    </div>
+                    <header class="c-card__header">
+                        <div class="c-card__leading">
+                            <h4 class="c-card__title">iPhone 8</h4>
+                            <span class="meta">Nothing new, except the screen size</span>
+                        </div>
+                    </header>
+                    <div class="c-card__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni voluptatum illum veniam cum iste, laboriosam.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <!-- END .l-col-3@lg -->
+            <div class="l-col-12 l-col-6@sm l-col-6@md l-col-4@lg l-col-3@xl">
+                <article class="c-card">
+                    <header class="c-card__header">
+                        <div class="c-card__leading">
+                            <h4 class="c-card__title">F8 2017</h4>
+                            <span class="meta">Facebook Developer Conference</span>
+                        </div>
+                        <div class="c-card__control">
+                            <button class="btn btn--primary btn--outline">Buy Ticket</button>
+                        </div>
+                    </header>
+                    <div class="c-card__shot" style="background-image: url(https://source.unsplash.com/random/300x400?4)"></div>
+                    <div class="c-card__content">
+                        <p>
+                            Join us for two days of interactive demos, announcements, and best practices that will keep you looking ahead. Attend sessions and interact with Facebook products and experts. Whether you’re with us in San Jose or tuning in from around the world, there’s an F8 for everyone.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <!-- END .l-col-3@lg -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

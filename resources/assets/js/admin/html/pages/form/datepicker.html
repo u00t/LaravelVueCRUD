@@ -1,0 +1,212 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Flatpickr<small><a href="https://github.com/chmln/flatpickr">https://github.com/chmln/flatpickr</a></small></h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker value="2017-02-12"></date-picker>
+                        </div>
+                        {% markdown %}
+                        DatePicker is a pre-built component bases on Flatpickr
+                        ```html
+                        <date-picker value="2017-02-12"></date-picker>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Range Dates</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker :range="true"></date-picker>
+                        </div>
+                        {% markdown %}
+                        Enables a range of dates select
+                        ```html
+                        <date-picker :range="true"></date-picker>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Time Picker</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker :time="true"></date-picker>
+                        </div>
+                        {% markdown %}
+                        Enables datetime picker
+                        ```html
+                        <date-picker :time="true"></date-picker>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Min & Max</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker min="2017-01-01" max="2017-02-01"></date-picker>
+                        </div>
+                        {% markdown %}
+                        Set the minimum date that a user can start picking from
+                        ```html
+                        <date-picker min="2017-01-01" max="2017-02-01"></date-picker>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Multiple Dates</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker :multiple="true"></date-picker>
+                        </div>
+                        {% markdown %}
+                        Set the maximum date that a user can pick to
+                        ```html
+                        <date-picker :multiple="true"></date-picker>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Custom options</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <div class="u-mb-15">
+                            <date-picker :options="opts"></date-picker>
+                        </div>
+                        {% markdown %}
+                        You can use all Flatpickr options by passing it to `options` property
+                        ```html
+                        <date-picker :options="opts"></date-picker>
+
+                        <script>
+                            new Vue({
+                                el: '#app',
+                                data: {
+                                    opts: {
+                                        enableTime: true,
+                                        enableSeconds: true
+                                    }
+                                }
+                            })
+                        </script>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h2 class="c-panel__title">Options</h2>
+            </header>
+            <div class="c-panel__body">
+                <table class="table table--bordered table--responsive">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Property">value</td>
+                            <td data-label="Description">
+                                Initial selected date
+                            </td>
+                            <td data-label="Type">
+                                string/Date
+                            </td>
+                            <td data-label="Default">null</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">min</td>
+                            <td data-label="Description">The minimum date that a user can start picking from</td>
+                            <td data-label="Type">String/Date</td>
+                            <td data-label="Default">null</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">max</td>
+                            <td data-label="Description">The maximum date that a user can pick to</td>
+                            <td data-label="Type">String/Date</td>
+                            <td data-label="Default">null</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">time</td>
+                            <td data-label="Description">Enables time picker</td>
+                            <td data-label="Type">boolean</td>
+                            <td data-label="Default">false</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">range</td>
+                            <td data-label="Description">Enables a range of dates select</td>
+                            <td data-label="Type">boolean</td>
+                            <td data-label="Default">false</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">multiple</td>
+                            <td data-label="Description">Enables multiple dates select</td>
+                            <td data-label="Type">boolean</td>
+                            <td data-label="Default">false</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">options</td>
+                            <td data-label="Description">The Flatpickr config <a href="https://chmln.github.io/flatpickr/options/">Options</a></td>
+                            <td data-label="Type">object</td>
+                            <td data-label="Default">{}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}
+
+{% block scripts %}
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            opts: {
+                enableTime: true,
+                enableSeconds: true
+            }
+        }
+    })
+</script>
+{% endblock %}

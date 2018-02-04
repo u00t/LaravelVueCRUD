@@ -1,0 +1,46 @@
+{% extends "layouts/center.nunjucks" %}
+
+{% block content %}
+<div class="c-sign">
+    <div class="c-sign__body">
+        <h1 class="c-sign__title">Cover</h1>
+        <p class="c-sign__text">Sign in with your Administrator Account</p>
+        <form action="{{root}}" method="GET">
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input">
+            </div>
+            <!-- END .form-group -->
+            <div class="form-group u-clearfix">
+                <label class="form-checkbox u-floatLeft">
+                    <input type="checkbox" checked="checked">
+                    <span class="form-checkbox__indicator"></span>
+                    <span class="form-checkbox__text">Remember me</span>
+                </label>
+                <!-- END .checkbox -->
+                <a href="{{root}}pages/forgot.html" class="u-floatRight">Forgot Password?</a>
+            </div>
+            <!-- END .form-group -->
+            <button type="submit" class="btn btn--primary btn--block">Sign in</button>
+        </form>
+        <div class="divider u-mt-30 u-mb-10"><span>OR</span></div>
+        <div class="u-textCenter">
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-facebook2"></i></a>
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-twitter"></i></a>
+            <a href="#" class="u-color-muted u-ml-10 u-mr-10"><i class="icon-github"></i></a>
+        </div>
+    </div>
+    <!-- END .c-sign__body -->
+    <div class="c-sign__footer">
+        <p class="u-textCenter">No account? Please go to <a href="{{root}}pages/register.html">Register</a></p>
+        <p class="u-textCenter u-textMuted u-fontSize-12">Dashboard UI kit by 20Theme<br>© 2017. All RIGHT RESERVED.</p>
+    </div>
+    <!-- END .c-sign__footer -->
+</div>
+<!-- END .c-sign -->
+{% endblock %}

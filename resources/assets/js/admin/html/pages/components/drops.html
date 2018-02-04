@@ -1,0 +1,292 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <section class="c-panel">
+            <header class="c-panel__header">
+                <h1 class="c-panel__title">Drop</h1>
+            </header>
+            <div class="c-panel__body">
+                <div class="u-mb-15">
+                    <drop>
+                        <button class="btn btn--primary" slot="trigger">
+                            Click Me<i class="i-arrowDown i-arrowDown--light u-ml-5"></i>
+                        </button>
+                        <drop-content slot="content">
+                            <ul class="c-nav c-nav--menus">
+                                <li class="c-nav__item">
+                                    <a role="button" class="c-nav__link">Profile</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a role="button" class="c-nav__link">Inbox</a>
+                                </li>
+                                <li class="c-nav__item">
+                                    <a role="button" class="c-nav__link is-disabled">Task</a>
+                                </li>
+                                <drop tag="li" class="c-nav__item">
+                                    <a role="button" class="c-nav__link" slot="trigger">Submenu</a>
+                                    <drop-content placement="right-start" slot="content">
+                                        <ul class="c-nav c-nav--menus">
+                                            <li class="c-nav__item">
+                                                <a role="button" class="c-nav__link">MenuItem 1</a>
+                                            </li>
+                                            <li class="c-nav__item">
+                                                <a role="button" class="c-nav__link">MenuItem 2</a>
+                                            </li>
+                                            <li class="c-nav__item">
+                                                <a role="button" class="c-nav__link">MenuItem 3</a>
+                                            </li>
+                                        </ul>
+                                    </drop-content>
+                                </drop>
+                                <li class="c-nav__divider"></li>
+                                <li class="c-nav__item">
+                                    <a role="button" class="c-nav__link">Log out</a>
+                                </li>
+                            </ul>
+                        </drop-content>
+                    </drop>
+                </div>
+                {% markdown %}
+                ```html
+                <drop>
+                    <button class="btn btn--primary" slot="trigger">Click Me</button>
+                    <drop-content slot="content">
+                        <ul class="c-nav c-nav--menus">
+                            <li class="c-nav__item">
+                                <a role="button" class="c-nav__link">Profile</a>
+                            </li>
+                            ...
+                            <drop tag="li" class="c-nav__item">
+                                <a role="button" class="c-nav__link" slot="trigger">Submenu</a>
+                                <drop-content placement="right-start" slot="content">
+                                    <ul class="c-nav c-nav--menus">
+                                        <li class="c-nav__item">
+                                            <a role="button" class="c-nav__link">MenuItem 1</a>
+                                        </li>
+                                        ...
+                                    </ul>
+                                </drop-content>
+                            </drop>
+                            ...
+                        </ul>
+                    </drop-content>
+                </drop>
+                ```
+                {% endmarkdown %}
+                <table class="table table--bordered table--responsive">
+                    <caption>Drop</caption>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Property">tag</td>
+                            <td data-label="Description">
+                                The element tag name
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">div</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">trigger</td>
+                            <td data-label="Description">
+                                How to trigger drop-content action: <code>click</code>, <code>hover</code>, <code>focus</code>
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">click</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table--bordered table--responsive">
+                    <caption>DropContent</caption>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Property">placement</td>
+                            <td data-label="Description">
+                                Placement of drop content:
+                                <code>top-start</code>, <code>top</code>, <code>top-end</code>,
+                                <code>right-start</code>, <code>right</code>, <code>right-end</code>,
+                                <code>bottom-start</code>, <code>bottom</code>, <code>bottom-end</code>,
+                                <code>left-start</code>, <code>left</code>, <code>left-end</code>
+                            </td>
+                            <td data-label="Type">
+                                string
+                            </td>
+                            <td data-label="Default">bottom-start</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">append-to-body</td>
+                            <td data-label="Description">
+                                Whether to use body as container
+                            </td>
+                            <td data-label="Type">
+                                boolean
+                            </td>
+                            <td data-label="Default">true</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Property">options</td>
+                            <td data-label="Description">
+                                Options of popper.js
+                            </td>
+                            <td data-label="Type">
+                                object
+                            </td>
+                            <td data-label="Default">null</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div class="l-row">
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Hover</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <drop trigger="hover" class="u-mb-15">
+                            <div class="c-account" slot="trigger">
+                                <div class="c-account__media">
+                                    <img src="{{root}}assets/images/avatar-m-1.jpg" class="avatar avatar--sm">
+                                </div>
+                                <div class="c-account__content">
+                                    <div class="c-account__title">Louis Liu</div>
+                                    <small class="c-account__meta">Administrator</small>
+                                </div>
+                            </div>
+                            <drop-content placement="top-start" slot="content">
+                                <div class="c-cell c-cell--start u-p-10 u-w-320">
+                                    <div class="c-cell__media">
+                                        <img src="{{root}}assets/images/avatar-f-1.jpg" class="avatar avatar--lg">
+                                    </div>
+                                    <!-- END .c-cell__media -->
+                                    <div class="c-cell__content">
+                                        <div class="c-cell__header">
+                                            <div class="c-cell__leading">
+                                                <div class="c-cell__title">Taylor Swift</div>
+                                            </div>
+                                            <div class="c-cell__after">17:14</div>
+                                        </div>
+                                        <div class="c-cell__body">
+                                            Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit. Vero voluptatum dolor
+                                            iusto voluptate, error incidunt.
+                                        </div>
+                                    </div>
+                                </div>
+                            </drop-content>
+                        </drop>
+                        {% markdown %}
+                        ```html
+                        <drop trigger="hover">
+                            <div class="c-account" slot="trigger">
+                                ...
+                            </div>
+                            <drop-content placement="top-start" slot="content">
+                                <div class="c-cell c-cell--start u-p-10 u-w-320">
+                                    ...
+                                </div>
+                            </drop-content>
+                        </drop>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-4@md -->
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Focus</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        <drop trigger="focus" class="form-group">
+                            <input type="text" class="form-input" slot="trigger">
+                            <drop-content placement="top-start" slot="content">
+                                <div class="u-p-10 u-w-220">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Optio quidem amet
+                                    voluptatem eaque repellat perferendis.
+                                </div>
+                            </drop-content>
+                        </drop>
+                        {% markdown %}
+                        ```html
+                        <drop trigger="focus" class="form-group">
+                            <input type="text" class="form-input" slot="trigger">
+                            <drop-content placement="top-start" slot="content">
+                                <div class="u-p-10 u-w-220">
+                                    Lorem ipsum dolor...
+                                </div>
+                            </drop-content>
+                        </drop>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-4@md -->
+            <div class="l-col-4@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Position</h2>
+                    </header>
+                    <div class="c-panel__body">
+                        {% for side in [
+                            ['bottom-start', 'bottom', 'bottom-end'],
+                            ['top-start', 'top', 'top-end'],
+                            ['left-start', 'left', 'left-end'],
+                            ['right-start', 'right', 'right-end']
+                        ] %}
+                        {% for placement in side %}
+                            <drop>
+                                <button class="btn btn--default" slot="trigger">{{placement}}</button>
+                                <drop-content placement="{{placement}}" slot="content">
+                                    <ul class="c-nav c-nav--menus">
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Home</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Profile</a>
+                                        </li>
+                                        <li class="c-nav__item">
+                                            <a href="#" class="c-nav__link">Logout</a>
+                                        </li>
+                                    </ul>
+                                </drop-content>
+                            </drop>
+                        {% endfor %}
+                        <br>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+            <!-- END .l-col-4@md -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}

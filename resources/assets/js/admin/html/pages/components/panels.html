@@ -1,0 +1,250 @@
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %}
+<div class="l-app__body">
+    <main id="main" class="l-app__main" role="main">
+        <div class="l-row">
+            <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Panel Title</h2>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        Panel is one the the core components. Almost everything you code will be placing into it.
+                        ```html
+                        <section class="c-panel">
+                            <header class="c-panel__header">
+                                <h3 class="c-panel__title">Panel Title</h3>
+                            </header>
+                            <div class="c-panel__body">
+                                // ...
+                            </div>
+                        </section>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+            <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        ```html
+                        <section class="c-panel">
+                            <div class="panel__body">
+                              // ...
+                            </div>
+                            <footer class="c-panel__footer">
+                              Panel Footer
+                            </footer>
+                        </section>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                    <footer class="c-panel__footer">
+                        Panel Footer
+                    </footer>
+                    <!-- END .c-panel__footer -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+            <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Panel with controls</h3>
+                        <div class="c-panel__controls">
+                            <ul class="c-nav c-nav--actions">
+                                <drop tag="li" class="c-nav__item">
+                                    <a role="button" class="c-nav__link" slot="trigger">
+                                        <i class="icon-cog"></i>
+                                    </a>
+                                    <drop-content slot="content">
+                                        <ul class="c-nav c-nav--menus">
+                                            <li class="c-nav__item">
+                                                <a href="#" class="c-nav__link">Accept</a>
+                                            </li>
+                                            <li class="c-nav__item">
+                                                <a href="#" class="c-nav__link">Reject</a>
+                                            </li>
+                                            <li class="c-nav__divider"></li>
+                                            <li class="c-nav__item">
+                                                <a href="#" class="c-nav__link">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </drop-content>
+                                </drop>
+                            </ul>
+                        </div>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        You can add some control content at the end of panel header.
+                        ```html
+                        <section class="c-panel">
+                            <header class="c-panel__header">
+                                <h3 class="c-panel__title">Panel with controls</h3>
+                                <div class="c-panel__controls">
+                                    // controls content
+                                </div>
+                            </header>
+                            <div class="c-panel__body">
+                                // body content
+                            </div>
+                            <footer class="c-panel__footer">
+                                Panel Footer
+                            </footer>
+                        </section>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                    <footer class="c-panel__footer">
+                        Panel Footer
+                    </footer>
+                    <!-- END .c-panel__footer -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+        </div>
+        <div class="l-row">
+            <div class="l-col-12 l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Panel with desc<small>Some Description Here...</small></h2>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        You can add some `<small></small>` description text at the end of panel title.
+                        ```html
+                        <section class="c-panel">
+                            <header class="c-panel__header">
+                                <h2 class="c-panel__title">Panel with desc<small>Some Description Here...</small></h2>
+                            </header>
+                            <div class="c-panel__body">
+                                // ...
+                            </div>
+                        </section>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+            <div class="l-col-12 l-col-6@md">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h2 class="c-panel__title">Panel with desc bottom<span>Some Description Here...</span></h2>
+                    </header>
+                    <!-- END .c-panel__header -->
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        You can add some `<span></span>` description text at the below of panel title.
+                        ```html
+                        <section class="c-panel">
+                            <header class="c-panel__header">
+                                <h2 class="c-panel__title">Panel with desc<span>Some Description Here...</span></h2>
+                            </header>
+                            <div class="c-panel__body">
+                                // ...
+                            </div>
+                        </section>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                    <!-- END .c-panel__body -->
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-6@md -->
+        </div>
+        <!-- END .l-row -->
+        <div class="l-row l-panelGroup">
+           <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Panels with same height</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        <p>
+                            Generally, panels are wrapped in grid columns. you can add a
+                            layout class <code>.l-panelGroup</code> on
+                            <code>.l-row</code> to make panels stretch it's
+                            height as the same as column.
+                        </p>
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+            <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Panel with same height</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        {% markdown %}
+                        ```html
+                        <div class="l-row l-panelGroup">
+                          <div class="l-col-4@md">
+                            <section class="c-panel">
+                              // ...
+                            </section>
+                          </div>
+                          <div class="l-col-4@md">
+                            <section class="c-panel">
+                              // ...
+                            </section>
+                          </div>
+                          <div class="l-col-4@md">
+                            <section class="c-panel">
+                              // ...
+                            </section>
+                          </div>
+                        </div>
+                        ```
+                        {% endmarkdown %}
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+            <div class="l-col-12 l-col-6@md l-col-4@lg">
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Panel with same height</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dolorum nisi necessitatibus, veniam, excepturi amet, cupiditate voluptate qui neque illo recusandae cum vitae deserunt. Delectus saepe assumenda, accusantium reiciendis quas!
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+                <section class="c-panel">
+                    <header class="c-panel__header">
+                        <h3 class="c-panel__title">Panel with same height</h3>
+                    </header>
+                    <div class="c-panel__body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos illum aliquam consequuntur ipsam incidunt repellendus!
+                    </div>
+                </section>
+                <!-- END .c-panel -->
+            </div>
+            <!-- END .l-col-4@lg -->
+        </div>
+        <!-- END .l-row -->
+    </main>
+    <!-- END .l-app__main -->
+</div>
+<!-- END .l-app__body -->
+{% endblock %}
