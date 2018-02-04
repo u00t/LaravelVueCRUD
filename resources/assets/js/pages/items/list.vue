@@ -30,6 +30,7 @@
 
         <div class="table-responsive" v-cloak>
             <vuetable
+                    ref="vuetable"
                     :api-url="url"
                     :pagination-path="paginationPath"
                     :per-page="perPage"
@@ -46,7 +47,7 @@
 
         <div class="text-center" v-cloak>
             <router-link :to="{ name: 'items.create' }" class="btn btn-default">
-                <i class="fa fa-plus"></i>
+                <fa icon="plus"/>
                 Create
             </router-link>
         </div>
@@ -54,10 +55,12 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         data() {
             return {
-                url: '/api/items',
+                url: '/api/items/',
                 paginationPath: '',
                 search: '',
                 perPage: 10,
@@ -177,6 +180,22 @@
                 })
             }
         },
+        created: function () {
+            var vm = this;
+            this.$on('showData', function (rowData) {
+                this.$router.push({ name: 'items.show', params: { itemId: rowData.id } })
+            });
+            this.$on('editData', function (rowData) {
+                this.$router.push({ name: 'items.edit', params: { itemId: rowData.id } })
+            });
+            this.$on('deleteData', function(rowData) {
+                axios.delete(this.url + rowData.id)
+                .then(
+                    vm.$refs.vuetable.reload(),
+                    vm.$refs.vuetable.refresh()
+                )
+            });
+        },
         events: {
             'vuetable:load-success'(response) {
                 let data = response.data.data;
@@ -196,47 +215,6 @@
                 };
 
                 this.$broadcast('notify', this.alert);
-            },
-            'showData'(rowData) {
-                this.$route.router.go({ name: 'show', params: { itemId: rowData.id } })
-            },
-            'editData'(rowData) {
-                this.$route.router.go({ name: 'edit', params: { itemId: rowData.id } })
-            },
-            'deleteData'(rowData) {
-                swal({
-                    title: 'Confirmation',
-                    text: 'Are you sure you want to delete this data?',
-                    type: 'question',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes',
-                    showLoaderOnConfirm: true
-                }).then(() => {
-                    swal.disableButtons();
-
-                    let formData = new FormData();
-
-                    formData.set('_method', 'DELETE');
-
-                    let url = this.url + '/' + rowData.id;
-
-                    Vue.http.post(url, formData)
-                        .then(response => {
-                            swal(
-                                'Success',
-                                'Your data has been deleted.',
-                                'success'
-                            );
-
-                            this.$broadcast('vuetable:refresh');
-                        }).catch(response => {
-                            swal(
-                                    'Error',
-                                    'Failed to delete your data.',
-                                    'error'
-                            );
-                        });
-                })
             },
         }
     }

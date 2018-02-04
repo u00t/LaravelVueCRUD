@@ -28,7 +28,7 @@ class UpdateItemRequest extends FormRequest
         return [
             'text' => 'required',
             'date' => 'required|date',
-            'time' => 'required|time',
+            'time' => 'required',
             'select1' => 'required',
             'select2' => 'required'
         ];
