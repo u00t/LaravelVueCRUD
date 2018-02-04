@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="col-12">
         <div class="row" v-cloak>
             <div class="col-md-7">
                 <div class="form-inline form-group">
@@ -67,48 +67,48 @@
                     {
                         title: 'Index',
                         name: '__sequence',
-                        titleClass: 'text-center col-sm-1',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Text',
                         name: 'text',
                         sortField: 'text',
-                        titleClass: 'text-center col-sm-2',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Date',
                         name: 'date',
                         sortField: 'date',
-                        titleClass: 'text-center col-sm-2',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Time',
                         name: 'time',
                         sortField: 'time',
-                        titleClass: 'text-center col-sm-2',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Select1',
                         name: 'select1',
                         sortField: 'select1',
-                        titleClass: 'text-center col-sm-2',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Select2',
                         name: 'select2',
                         sortField: 'select2',
-                        titleClass: 'text-center col-sm-2',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                     {
                         title: 'Actions',
                         name: '__component:actions',
-                        titleClass: 'text-center col-sm-1',
+                        titleClass: 'text-center',
                         dataClass: 'text-center',
                     },
                 ],
@@ -117,9 +117,9 @@
         watch: {
             'perPage' (newValue, oldValue) {
                 this.perPage = Number(newValue),
+                this.$refs.vuetable.reload(),
+                this.$refs.vuetable.refresh(),
                 this.$refs.vuetable.changePage(1)
-                // this.$refs.vuetable.reload(),
-                // this.$refs.vuetable.refresh()
             }
         },
         methods: {

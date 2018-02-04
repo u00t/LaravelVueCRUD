@@ -45,6 +45,7 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateItemRequest $request) {
+        return 'xx';
     	$item = new Item();
 
     	if ($request->hasFile('file')) {
