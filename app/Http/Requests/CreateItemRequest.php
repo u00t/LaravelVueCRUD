@@ -13,7 +13,7 @@ class CreateItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class CreateItemRequest extends FormRequest
         return [
             'text' => 'required',
             'date' => 'required|date',
-            'time' => 'required|time',
+            'time' => 'required',
             'select1' => 'required',
             'select2' => 'required'
         ];

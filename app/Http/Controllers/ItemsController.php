@@ -32,14 +32,8 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        $sort = $request->sort;
-        $sort = explode('|', $sort);
-
-        $sortBy = $sort[0];
-        $sortDirection = $sort[1];
-
     	$perPage = $request->per_page;
-    	$query = Item::orderBy($sortBy, $sortDirection);
+    	$query = Item::query();
 
     	return $query->paginate($perPage);
     }
@@ -58,7 +52,6 @@ class ItemsController extends Controller
     	}
 
     	$this->itemService->saveItem($request, $item);
-
     	return response(null, Response::HTTP_CREATED);
     }
 
