@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import Cookies from 'js-cookie'
     import axios from 'axios'
     import Form from 'vform'
     import ItemForm from './form'
@@ -55,6 +56,7 @@
                 var vm = this
                 this.item.put(this.url + this.itemId)
                     .then(function() {
+                        Cookies.set('item_status', 'edit');
                         vm.$router.push({ name: 'items.list' })
                     })
             }

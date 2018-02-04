@@ -18,6 +18,7 @@
                     <label>Per Page:</label>
 
                     <select class="form-control" v-model="perPage">
+                        <option value=1>1</option>
                         <option value=10>10</option>
                         <option value=25>25</option>
                         <option value=50>50</option>
@@ -29,20 +30,16 @@
         </div>
 
         <div class="table-responsive" v-cloak>
-            <vuetable
-                    ref="vuetable"
-                    :api-url="url"
-                    :pagination-path="paginationPath"
-                    :per-page="perPage"
-                    :fields="fields"
-                    :sort-order="sortOrder"
-                    :table-class="tableClass"
-                    :ascending-icon="ascendingIcon"
-                    :descending-icon="descendingIcon"
-                    :wrapper-class="wrapperClass"
-                    :table-wrapper="tableWrapper"
-                    :pagination-component="paginationComponent"
+            <vuetable ref="vuetable"
+              :api-url="url"
+              :fields="fields"
+              pagination-path=""
+              :perPage="perPage"
+              @vuetable:pagination-data="onPaginationData"
             ></vuetable>
+            <vuetable-pagination ref="pagination"
+              @vuetable-pagination:change-page="onChangePage"
+            ></vuetable-pagination>
         </div>
 
         <div class="text-center" v-cloak>
@@ -56,14 +53,16 @@
 
 <script>
     import axios from 'axios'
+    import Cookies from 'js-cookie'
+    import swal from 'sweetalert2'
+    import i18n from '~/plugins/i18n'
 
     export default {
         data() {
             return {
                 url: '/api/items/',
-                paginationPath: '',
-                search: '',
-                perPage: 10,
+                perPage: 1,
+                search: "",
                 fields: [
                     {
                         title: 'Index',
@@ -113,71 +112,22 @@
                         dataClass: 'text-center',
                     },
                 ],
-                sortOrder: [
-                    {
-                        field: 'text',
-                        direction: 'asc'
-                    }
-                ],
-                tableClass: 'table table-bordered table-hover',
-                ascendingIcon: 'glyphicon glyphicon-menu-up pull-right',
-                descendingIcon: 'glyphicon glyphicon-menu-down pull-right',
-                wrapperClass: 'vuetable-wrapper ',
-                tableWrapper: '.vuetable-wrapper',
-                paginationComponent: 'bootstrap-pagination',
-                alert: {
-                    show: false,
-                    type: null,
-                    title: null,
-                    message: null,
-                },
             }
         },
         watch: {
-            'search'(newValue, oldValue) {
-                this.setFilter()
-            },
-            'perPage'(newValue, oldValue) {
-                this.$broadcast('vuetable:refresh')
-            },
+            'perPage' (newValue, oldValue) {
+                this.perPage = Number(newValue),
+                this.$refs.vuetable.changePage(1)
+                // this.$refs.vuetable.reload(),
+                // this.$refs.vuetable.refresh()
+            }
         },
         methods: {
-            /**
-             * Other functions
-             */
-            setFilter() {
-
-                this.$nextTick(function () {
-                    this.$broadcast('vuetable:refresh')
-                })
+            onPaginationData (paginationData) {
+              this.$refs.pagination.setPaginationData(paginationData)
             },
-            resetFilter() {
-                this.search = '';
-
-                this.setFilter()
-            },
-            preg_quote(str) {
-                return (str + '').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
-            },
-            highlight(needle, haystack) {
-                return haystack.replace(
-                    new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
-                    '<span class="highlight">$1</span>'
-                )
-            },
-            paginationConfig(componentName) {
-                this.$broadcast('vuetable-pagination:set-options', {
-                    wrapperClass: 'pagination pull-right',
-                    icons: {
-                        first: '',
-                        prev: '',
-                        next: '',
-                        last: ''
-                    },
-                    activeClass: 'active',
-                    linkClass: '',
-                    pageClass: ''
-                })
+            onChangePage (page) {
+              this.$refs.vuetable.changePage(page)
             }
         },
         created: function () {
@@ -195,27 +145,33 @@
                     vm.$refs.vuetable.refresh()
                 )
             });
-        },
-        events: {
-            'vuetable:load-success'(response) {
-                let data = response.data.data;
 
-                if (this.search !== '') {
-                    for (let index in data) {
-                        data[index].text = this.highlight(this.search, data[index].text);
-                    }
-                }
-            },
-            'vuetable:load-error'(response) {
-                this.alert = {
-                    show: true,
-                    type: 'danger',
-                    title: 'Error',
-                    message: response.statusText
-                };
-
-                this.$broadcast('notify', this.alert);
-            },
+            var item_status = Cookies.get('item_status');
+            switch (item_status) {
+                case 'create':
+                    swal({
+                      type: 'success',
+                      title: i18n.t("item_create_title"),
+                      text: i18n.t("item_create_text"),
+                      reverseButtons: true,
+                      confirmButtonText: i18n.t('ok'),
+                      cancelButtonText: i18n.t('cancel')
+                    })
+                    break;
+                case 'edit':
+                    swal({
+                      type: 'success',
+                      title: i18n.t("item_update_title"),
+                      text: i18n.t("item_update_text"),
+                      reverseButtons: true,
+                      confirmButtonText: i18n.t('ok'),
+                      cancelButtonText: i18n.t('cancel')
+                    })
+                    break;
+                default:
+                    break;
+            }
+            Cookies.set('item_status', '');
         }
     }
 </script>
