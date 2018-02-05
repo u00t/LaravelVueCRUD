@@ -57,7 +57,7 @@
         data() {
             return {
                 url: '/api/items/',
-                perPage: 1,
+                perPage: 15,
                 pagination: {
                   wrapperClass: 'vuetable-pagination pull-right',
                   infoClass: 'pull-left',

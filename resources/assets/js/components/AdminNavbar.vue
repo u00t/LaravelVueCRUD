@@ -80,7 +80,9 @@
                       </li>
                       <li class="c-nav__divider"></li>
                       <li class="c-nav__item">
-                          <a href="#" class="c-nav__link">Log out</a>
+                          <a @click.prevent="logout" class="c-nav__link"  href="#">
+                            {{ $t('logout') }}
+                          </a>
                       </li>
                   </ul>
               </drop-content>
@@ -92,6 +94,15 @@
 <script>
 
 export default {
+  methods: {
+    async logout () {
+      // Log out the user.
+      await this.$store.dispatch('auth/logout')
+
+      // Redirect to login.
+      this.$router.push({ name: 'login' })
+    }
+  }
 }
 </script>
 

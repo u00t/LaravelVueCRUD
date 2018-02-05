@@ -1,51 +1,54 @@
 <template>
-  <div class="row">
-    <div class="col-md-3">
-      <card :title="$t('settings')" class="settings-card">
-        <ul class="nav flex-column nav-pills">
-          <li v-for="tab in tabs" class="nav-item">
-            <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
-              <fa :icon="tab.icon" fixed-width/>
-              {{ tab.name }}
-            </router-link>
-          </li>
-        </ul>
-      </card>
-    </div>
-
-    <div class="col-md-9">
-      <transition name="fade" mode="out-in">
-        <router-view/>
-      </transition>
-    </div>
-  </div>
+    <section class="c-panel">
+        <header class="c-panel__header">
+            <h3 class="c-panel__title">Create item</h3>
+        </header>
+        <!-- END .c-toolbar -->
+        <div class="c-panel__body">
+            <item-form :item="item"></item-form>
+        </div>
+    </section>
 </template>
 
 <script>
-export default {
-  middleware: 'auth',
+    import Cookies from 'js-cookie'
+    import Form from 'vform'
+	import ItemForm from './form'
 
-  computed: {
-    tabs () {
-      return [
-        {
-          icon: 'user',
-          name: this.$t('profile'),
-          route: 'settings.profile'
+    export default {
+    	components: {
+    		ItemForm
+    	},
+        data() {
+            return {
+                url: '/api/items',
+                item: new Form({
+                    text: '',
+                    date: '',
+                    time: '',
+                    select1: '',
+                    select2: ''
+                })
+            }
         },
-        {
-          icon: 'lock',
-          name: this.$t('password'),
-          route: 'settings.password'
+        created: function () {
+            this.$on('submitted', this.submitted)
+        },
+        beforeDestroy: function () {
+            this.$off('submitted', this.submitted)
+        },
+        methods: {
+            submitted() {
+                var vm = this
+                this.item.post(this.url)
+                    .then(function() {
+                        Cookies.set('item_status', 'create');
+                        vm.$router.push({ name: 'items.list' })
+                    })
+            },
+            successed() {
+                this.$router.push({ name: 'items.list' })
+            }
         }
-      ]
     }
-  }
-}
 </script>
-
-<style>
-.settings-card .card-body {
-  padding: 0;
-}
-</style>
