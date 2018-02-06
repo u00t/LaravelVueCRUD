@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->time('time');
             $table->string('select1');
             $table->string('select2');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

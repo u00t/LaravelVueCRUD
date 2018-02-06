@@ -1,13 +1,16 @@
 <template>
-	<form @submit.pervent="submit" class="form-horizontal" no-validate v-cloak>
-		<div 
+	<form @submit.pervent="submit" class="form-horizontal" no-validate v-cloak enctype="multipart/form-data">
+        <alert type="danger" :closeable="true" v-if="Object.keys(item.errors.errors).length > 0">
+            Woops! Something went wrong!
+        </alert>
+        <div 
             class="form-group l-row">
-			<label for="text" class="form-label l-col-12 l-col-3@md">Text</label>
+			<label for="text" class="form-label l-col-12 l-col-2@md text-right">Text</label>
 			<div class="l-col-12 l-col-9@md">
 				<input
                     v-model="item.text"
                     type="text"
-                    class="form-input"
+                    class="form-control"
                     id="text"
                     name="text"
                     placeholder="Text..."
@@ -18,58 +21,79 @@
 		</div>
         <div 
             class="form-group l-row">
-            <label for="date" class="form-label l-col-12 l-col-3@md">Date</label>
+            <label for="date" class="form-label l-col-12 l-col-2@md text-right">Date</label>
             <div class="l-col-12 l-col-9@md">
-                <input
+                <date-picker 
                     v-model="item.date"
-                    type="date"
-                    class="form-input"
-                    id="date"
+                    class="form-control"
                     name="date"
                     placeholder="Date..."
-                    :class="{ 'is-invalid': item.errors.has('date') }"
-                    >
+                    value="item.date"
+                    :options="dateOpts"
+                    :class="{ 'is-invalid': item.errors.has('date') }"></date-picker>
                 <has-error :form="item" field="date"/>
             </div>
         </div>
         <div 
             class="form-group l-row">
-            <label for="time" class="form-label l-col-12 l-col-3@md">Time</label>
+            <label for="time" class="form-label l-col-12 l-col-2@md text-right">Time</label>
             <div class="l-col-12 l-col-9@md">
-                <input
+                <date-picker 
                     v-model="item.time"
-                    type="time"
-                    class="form-input"
-                    id="time"
+                    class="form-control"
                     name="time"
+                    :time="true"
+                    :options="timeOpts"
                     placeholder="Time..."
-                    :class="{ 'is-invalid': item.errors.has('time') }"
-                    >
+                    value="item.time"
+                    :class="{ 'is-invalid': item.errors.has('time') }"></date-picker>
                 <has-error :form="item" field="text"/>
             </div>
         </div>
         <div 
             class="form-group l-row">
-            <label for="select1" class="form-label l-col-12 l-col-3@md">Select1</label>
+            <label for="select1" class="form-label l-col-12 l-col-2@md text-right">Select1</label>
             <div class="l-col-12 l-col-9@md">
                 <v-select 
                     v-model="item.select1" 
                     placeholder="Select1..."
-                    :options="options1">
+                    :options="options1"
+                    name="select1"
+                    class="form-control form-select"
+                    :class="{ 'is-invalid': item.errors.has('select1') }"
+                    >
                 </v-select>
                 <has-error :form="item" field="select1"/>
             </div>
         </div>
         <div 
             class="form-group l-row">
-            <label for="select2" class="form-label l-col-12 l-col-3@md">Select2</label>
+            <label for="select2" class="form-label l-col-12 l-col-2@md text-right">Select2</label>
             <div class="l-col-12 l-col-9@md">
                 <v-select 
                     v-model="item.select2" 
                     placeholder="Select2..."
-                    :options="options2">
+                    :options="options2"
+                    name="select2"
+                    class="form-control"
+                    :class="{ 'is-invalid': item.errors.has('select2') }"
+                    >
                 </v-select>
                 <has-error :form="item" field="select2"/>
+            </div>
+        </div>
+        <div class="form-group l-row" v-if="item.id == null">
+            <label for="file" class="form-label l-col-12 l-col-2@md text-right">File</label>
+            <div class="l-col-12 l-col-9@md">
+                <input
+                    type="file"
+                    class="form-input"
+                    id="file"
+                    name="file"
+                    @change="processFile($event)"
+                    :class="{ 'is-invalid': item.errors.has('file') }"
+                    >
+                <has-error :form="item" field="file"/>
             </div>
         </div>
         <div class="form-group l-row">
@@ -95,9 +119,23 @@
             },
         },
     	data() {
+            var vm = this;
+
     		return {
                 options1: ['Apple', 'Banana', 'Tomato'],
-                options2: ['Dog', 'Elephant', 'Cat']
+                options2: ['Dog', 'Elephant', 'Cat'],
+                dateOpts: {
+                    onChange: function(selectedDates, dateStr, instance) {
+                        vm.item.date = dateStr
+                    }
+                },
+                timeOpts: {
+                    noCalendar: true,
+                    dateFormat: "H:i",
+                    onChange: function(selectedDates, dateStr, instance) {
+                        vm.item.time = dateStr
+                    }
+                }
     		}
     	},
         methods: {
@@ -105,11 +143,18 @@
                 e.preventDefault();
                 this.$parent.$emit('submitted');
             },
-        },
-        events: {
-            'formErrors'(errors) {
-                this.item.errors = errors;
-            },
+            processFile(event) {
+                this.item.file = event.target.files[0]
+            }
         }
     }
 </script>
+
+<style type="text/css">
+    .v-select {
+        padding: 0 6px;
+    }
+    .v-select .dropdown-toggle {
+        border: none;
+    }
+</style>

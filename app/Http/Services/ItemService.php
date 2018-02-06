@@ -20,4 +20,18 @@ class ItemService
         $item->save();
     }
 
+    /**
+     * @param $request
+     * @param $item
+     */
+    public function uploadFile($request, $item)
+    {
+        $fileName = str_random(30);
+        $extension = $request->file->extension();
+        $fullFileName = "{$fileName}.{$extension}";
+
+        if ($request->file->storeAs('public/files', $fullFileName)) {
+            $item->file = $fullFileName;
+        }
+    }
 }

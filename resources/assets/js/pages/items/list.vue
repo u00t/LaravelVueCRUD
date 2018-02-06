@@ -26,6 +26,12 @@
         </header>
         <!-- END .c-toolbar -->
         <div class="table-responsive" v-cloak>
+            <alert type="success" :closeable="true" v-if="item_status == 'create'">
+                Item created successfully
+            </alert>
+            <alert type="success" :closeable="true" v-else-if="item_status == 'edit'">
+                Item updated successfully
+            </alert>
             <vuetable ref="vuetable"
               :api-url="url"
               :fields="fields"
@@ -56,6 +62,7 @@
         },
         data() {
             return {
+                item_status: '',
                 url: '/api/items/',
                 perPage: 15,
                 pagination: {
@@ -155,31 +162,7 @@
                 )
             });
 
-            var item_status = Cookies.get('item_status');
-            switch (item_status) {
-                case 'create':
-                    swal({
-                      type: 'success',
-                      title: i18n.t("item_create_title"),
-                      text: i18n.t("item_create_text"),
-                      reverseButtons: true,
-                      confirmButtonText: i18n.t('ok'),
-                      cancelButtonText: i18n.t('cancel')
-                    })
-                    break;
-                case 'edit':
-                    swal({
-                      type: 'success',
-                      title: i18n.t("item_update_title"),
-                      text: i18n.t("item_update_text"),
-                      reverseButtons: true,
-                      confirmButtonText: i18n.t('ok'),
-                      cancelButtonText: i18n.t('cancel')
-                    })
-                    break;
-                default:
-                    break;
-            }
+            this.item_status = Cookies.get('item_status');
             Cookies.set('item_status', '');
         }
     }

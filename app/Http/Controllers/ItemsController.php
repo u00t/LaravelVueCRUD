@@ -8,6 +8,7 @@ use App\Http\Services\ItemService;
 use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Storage;
 
 class ItemsController extends Controller
 {
@@ -33,7 +34,7 @@ class ItemsController extends Controller
      */
     public function index(Request $request) {
     	$perPage = $request->per_page;
-    	$query = Item::query();
+    	$query = Item::orderBy('created_at', 'desc');
 
     	return $query->paginate($perPage);
     }
@@ -47,8 +48,8 @@ class ItemsController extends Controller
     public function store(CreateItemRequest $request) {
     	$item = new Item();
 
-    	if ($request->hasFile('file')) {
-    		// File
+        if ($request->hasFile('file')) {
+    	   	$this->itemService->uploadFile($request, $item);
     	}
 
     	$this->itemService->saveItem($request, $item);
@@ -75,6 +76,7 @@ class ItemsController extends Controller
     public function update(UpdateItemRequest $request, $id)
     {
         $item = Item::findOrFail($id);
+        $request->file = $item->file;
 
         $this->itemService->saveItem($request, $item);
 

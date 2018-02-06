@@ -1,7 +1,9 @@
 <template>
     <section class="c-panel">
         <header class="c-panel__header">
-            <h3 class="c-panel__title">Create item</h3>
+            <div class="l-col-12 l-col-2@md text-right">
+                <h3 class="c-panel__title">Create item</h3>
+            </div>
         </header>
         <!-- END .c-toolbar -->
         <div class="c-panel__body">
@@ -41,7 +43,8 @@
             submitted() {
                 var vm = this
                 this.item.post(this.url)
-                    .then(function() {
+                    .then(function(response) {
+                        console.log(response.data);
                         Cookies.set('item_status', 'create');
                         vm.$router.push({ name: 'items.list' })
                     })

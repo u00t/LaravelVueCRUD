@@ -16,6 +16,9 @@ import toggle from '../admin/directives/toggle'
 import menu from '../admin/directives/menu'
 import { IconSuccess, IconDanger, IconWarning } from '../admin/components/icon'
 
+import Alert from '../admin/components/alert'
+import DatePicker from '../admin/components/datepicker'
+
 // Components that are registered globaly.
 [
   Card,
@@ -23,11 +26,13 @@ import { IconSuccess, IconDanger, IconWarning } from '../admin/components/icon'
   Button,
   Checkbox,
   HasError,
+  Alert,
   AlertError,
   AlertSuccess,
   Actions,
   Drop,
   DropContent,
+  DatePicker,
   Sidebar,
   IconSuccess, 
   IconDanger,

@@ -3,7 +3,7 @@
     <div class="l-level__item">
       <nav class="c-pagination c-pagination--bordered">
         <span v-if="isOnFirstPage" class="c-pagination__item is-disabled">Prev</span>
-        <a v-else href="" @click.prevent="loadPage('next')" class="c-pagination__item">Prev</a>
+        <a v-else href="" @click.prevent="loadPage('prev')" class="c-pagination__item">Prev</a>
 
         <template v-if="notEnoughPages">
           <a v-for="n in totalPage" @click.prevent="loadPage(n)" v-html="n" class="c-pagination__item" :class="{'is-active': isCurrentPage(n)}"></a>
